@@ -1,0 +1,438 @@
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark flex-row hidden-sm-down"
+>
+  <a class="navbar-brand  col-xs-10 col-lg-3 mr-3 my-2 my-lg-0 text-white-50">
+    <img [src]="imageUrl" height="40" width="40" /> EDAD TOKEN BOX</a
+  >
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    [attr.aria-expanded]="isCollapsed"
+    aria-label="Toggle navigation"
+    (click)="toggleArial()"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div [ngClass]="toggleClass" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-4 my-2 my-lg-0">
+      <li class="nav-item  dropdown">
+        <a
+          class="nav-link"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i
+            class="fas fa-box"
+            style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+          ></i
+          >&nbsp;{{ boxUsage }}</a
+        >
+        <div
+          class="dropdown-content bg-dark text-white-50 pb-2 pt-1"
+          aria-labelledby="navbarDropdown"
+        >
+          <a class="dropdown-item text-white-50" routerLink="/smart-saving"
+            ><i
+              class="fa fa-user"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;{{ usage[0] }}</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fa fa-donate"
+              style="border-radius:80; font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;{{ usage[1] }}</a
+          >
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fa fa-user-cog"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Smart Agents</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-users"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Group Users</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-church"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Church Users</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-school"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;School Users</a
+          >
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i
+            class="fas fa-piggy-bank"
+            style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+          ></i
+          >&nbsp;Boxes<span></span
+        ></a>
+
+        <div
+          class="dropdown-content bg-dark  text-white-50 pb-2 pt-1"
+          aria-labelledby="navbarDropdown"
+        >
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-user"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Smart Savers</a
+          >
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-donate"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Smart Vendors</a
+          >
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-user-cog"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Smart Agents</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-users"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Group</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-praying-hands"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;God's</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-school"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;School fees</a
+          >
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i
+            class="fas fa-money-bill-alt"
+            style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+          ></i
+          >&nbsp;Earnings</a
+        >
+
+        <div
+          class="dropdown-content bg-dark  text-white-50 pb-2 pt-1"
+          aria-labelledby="navbarDropdown"
+        >
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-coins"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Interest</a
+          >
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-exchange-alt"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >Exchange for Service</a
+          >
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-wallet"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Investment</a
+          >
+        </div>
+      </li>
+      <li class="nav-item  dropdown">
+        <a
+          class="nav-link"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i
+            class="fas fa-info-circle"
+            style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+          ></i
+          >&nbsp;About Us</a
+        >
+
+        <div
+          class="dropdown-content bg-dark  text-white-50 pb-2 pt-1"
+          aria-labelledby="navbarDropdown"
+        >
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fa fa-industry"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;EDAD SMC</a
+          >
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fa fa-user-alt"
+              style="border-radius:80; font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Byamukama Daniel</a
+          >
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fa fa-brain"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;The Idea</a
+          >
+        </div>
+      </li>
+
+      <li class="nav-item  dropdown">
+        <a
+          class="nav-link"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i
+            class="fas fa-address-book"
+            style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+          ></i
+          >&nbsp;Contact Us</a
+        >
+
+        <div
+          class="dropdown-content bg-dark  text-white-50 pb-2 pt-1"
+          aria-labelledby="navbarDropdown"
+        >
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-envelope"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Email</a
+          >
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-sms"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Text</a
+          >
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fab fa-facebook-square"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Facebook</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fab fa-twitter"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Twitter</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-white-50"
+            ><i
+              class="fas fa-chalkboard-teacher"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Box Number</a
+          >
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="fa fa-download" style="color:rgb(190, 114, 0)"></i
+          >&nbsp;Green Paper
+        </a>
+      </li>
+      <li class="nav-item  dropdown">
+        <a
+          class="nav-link"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i
+            class="fas fa-registered "
+            style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+          ></i
+          >&nbsp;Register</a
+        >
+        <div
+          class="dropdown-content bg-dark  text-white-50 pb-2 pt-1"
+          aria-labelledby="navbarDropdown"
+        >
+          <a
+            class="dropdown-item text-white-50"
+            routerLink="registersmartsaver"
+            (click)="toggleArial()"
+            ><i
+              class="fa fa-user"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Smart Saver</a
+          >
+          <div class="dropdown-divider"></div>
+          <a
+            class="dropdown-item text-white-50"
+            routerLink="registersmartagent"
+            (click)="toggleArial()"
+            ><i
+              class="fas fa-user-cog"
+              style="border-radius:80; font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Smart Agent</a
+          >
+          <div class="dropdown-divider"></div>
+          <a
+            class="dropdown-item text-white-50"
+            routerLink="registersmartvendor"
+            (click)="toggleArial()"
+            ><i
+              class="fas fa-donate"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Smart Vendor</a
+          >
+          <div class="dropdown-divider"></div>
+          <a
+            class="dropdown-item text-white-50"
+            routerLink="registergroupbox"
+            (click)="toggleArial()"
+            ><i
+              class="fa fa-users"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Group Box</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a
+            class="dropdown-item text-white-50"
+            routerLink="registerboxforGod"
+            (click)="toggleArial()"
+            ><i
+              class="fas fa-praying-hands"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;God's Box</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a
+            class="dropdown-item text-white-50"
+            routerLink="registerschoolfeesbox"
+            (click)="toggleArial()"
+            ><i
+              class="fas fa-school"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;School Fees Box</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <a
+            class="dropdown-item text-white-50"
+            routerLink="registeradmin"
+            (click)="toggleArial()"
+            ><i
+              class="fas fa-cogs"
+              style="font-size:20px;color:rgb(190, 114, 0);padding: 2px"
+            ></i
+            >&nbsp;Register Admin</a
+          >
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet> </router-outlet>

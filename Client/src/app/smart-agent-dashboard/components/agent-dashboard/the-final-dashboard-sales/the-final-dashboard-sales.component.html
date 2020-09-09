@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="card shadow mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h6 class="text-primary font-weight-bold m-0">Token Purchases Overview</h6>
+        </div>
+        <div class="card-body table-responsive-lg">
+          <div class="row">
+            <div class="col-lg-12 col-xs-12">
+              <table class="table table-striped">
+                <thead class="thead-dark">
+                  <tr class="text-info">
+                    <th>Txn Date</th>
+                    <th>Txn Details</th>
+                    <th>Tokens Out</th>
+                    <th>Tokens In</th>
+                    <th>Balance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let tokens of TxnsHistory" class="text-success">
+                    <td>{{ tokens.txn_date }}</td>
+                    <td>{{ tokens.trn_narration }}</td>
+                    <td>{{ tokens.tokens_credit|number }}</td>
+                    <td>{{ tokens.tokens_debit|number }}</td>
+
+                    <td>{{ tokens.individual_box_balance|number }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow mb-4">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h6 class="text-primary font-weight-bold m-0">Token Purchases Overview</h6>
+  </div>
+  <div class="card-body ">
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="text-primary font-weight-bold m-0">Projections</h6>
+          </div>
+          <div class="card-body">
+            <h4 class="small font-weight-bold">Smart Savings<span class="float-right">20%</span></h4>
+            <div class="progress mb-4">
+              <div class="progress-bar bg-danger" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                style="width: 20%;"><span class="sr-only">20%</span></div>
+            </div>
+            <h4 class="small font-weight-bold">Smart Agency Earnings<span class="float-right">40%</span></h4>
+            <div class="progress mb-4">
+              <div class="progress-bar bg-warning" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                style="width: 40%;"><span class="sr-only">40%</span></div>
+            </div>
+            <h4 class="small font-weight-bold">Smart Vending<span class="float-right">60%</span></h4>
+            <div class="progress mb-4">
+              <div class="progress-bar bg-primary" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                style="width: 60%;"><span class="sr-only">60%</span></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col-lg-6 mb-4">
+            <div class="card text-white bg-primary shadow">
+              <div class="card-body">
+                <p class="m-0">Box Balance</p>
+                <p class="text-white-50 small m-0">EDT {{boxBalance}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="card text-white bg-success shadow">
+              <div class="card-body">
+                <p class="m-0">Smart Savings</p>
+                <p class="text-white-50 small m-0">EDT 20,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="card text-white bg-info shadow">
+              <div class="card-body">
+                <p class="m-0">Total Vending Transactions</p>
+                <p class="text-white-50 small m-0">EDT 4,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="card text-white bg-warning shadow">
+              <div class="card-body">
+                <p class="m-0">Agency Earnings</p>
+                <p class="text-white-50 small m-0">EDT 200</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="card text-white bg-danger shadow">
+              <div class="card-body">
+                <p class="m-0">Transfers In</p>
+                <p class="text-white-50 small m-0">EDT 30,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="card text-white bg-secondary shadow">
+              <div class="card-body">
+                <p class="m-0">Withdraws</p>
+                <p class="text-white-50 small m-0">EDT 10,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+</div>
+
+

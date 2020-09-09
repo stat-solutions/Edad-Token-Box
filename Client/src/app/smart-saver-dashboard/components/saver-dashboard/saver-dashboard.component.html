@@ -1,0 +1,103 @@
+<div class="d-flex flex-column">
+  <div class="container">
+    <div class="row d-flex flex-row justify-content-center">
+      <div class="col-xs-12 "></div>
+      <div class="col-xs-12 mx-2">
+        <h3 class="text-primary mb-0">MY TOKEN SAVINGS BOX</h3>
+      </div>
+      <div class="col-xs-12"></div>
+
+    </div>
+    <div class="container">
+      <div class="d-sm-flex justify-content-between align-items-center my-4">
+
+
+        <a class="btn btn-primary btn-sm" role="button" routerLink='/userDashboard/add-box-tokens'><i
+            class="fas fa-download fa-sm text-white-50"></i>Generate Report</a>
+      </div>
+
+      <div class="row  d-flex flex-row justify-content-center">
+        <div class="col-md-6 col-xl-6 mb-4">
+          <div class="card shadow border-left-primary py-2 border border-warning">
+            <div class="card-body">
+              <div class="row align-items-center no-gutters">
+                <div class="col mr-2">
+                  <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>MY TOKEN SAVINGS
+                      BALANCE</span>
+                  </div>
+                  <div class="text-secondary font-weight-bold h5 mb-0" *ngFor="let balance of boxBalance"><span>EDT {{balance.BOX_BALANCE}}</span></div>
+                </div>
+                <div class="col-auto"><i class="fas fa-box-open fa-2x text-danger"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-6 mb-4">
+          <div class="card shadow border-left-info py-2 border border-danger">
+            <div class="card-body ">
+              <div class="row align-items-center no-gutters">
+                <div class="col mr-2">
+                  <div class="text-uppercase align-items-center text-info font-weight-bold text-xs mb-1"><span>MY INTEREST EARNINGS</span>
+                  </div>
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                      <div class="text-secondary font-weight-bold h5 mb-0" *ngFor="let inter of interestEarnings"><span>  UGX {{inter.interest*1000|number}}/=</span></div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="col-auto"><i class="fas fa-clipboard-list fa-2x  text-primary"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-xs-12">
+          <div class="card shadow mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+               <h6 class="text-primary font-weight-bold m-0">Transactions Overview</h6>
+
+            </div>
+            <div class="card-body table-responsive-lg">
+              <div class="row">
+                <div class="col-lg-12 col-xs-12">
+                  <table class="table table-striped">
+                    <thead class="thead-dark">
+                      <tr class="text-info">
+                        <th>Txn Id</th>
+                        <th>Txn Date</th>
+                        <th>Txn Time</th>
+                        <th>Txn Details</th>
+                        <th>Tokens Out</th>
+                        <th>Tokens In</th>
+                        <th>Balance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let tokens of TxnsHistory" class="text-success">
+                        <td>{{ tokens.id }}</td>
+                        <td>{{ tokens.trn_date }}</td>
+                        <td>{{ tokens.trn_time }}</td>
+                        <td>{{ tokens.trn_narration }}</td>
+                        <td>{{ tokens.debit_amount|number }}</td>
+                        <td>{{ tokens.credit_amount|number }}</td>
+
+                        <td>{{ tokens.running_balance|number }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>

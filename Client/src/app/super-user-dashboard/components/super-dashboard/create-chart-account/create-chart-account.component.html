@@ -1,0 +1,243 @@
+
+<div class="jumbotron-fluid">
+
+  <!-- <div class="d-flex flex-column"> -->
+
+
+        <form [formGroup]="userForm" (ngSubmit)="createLedger()">
+<!-- <div class="row"> -->
+  <!-- (click)="resetAccountLevel2Items()"-->
+  <div class="row d-flex flex-row mx-2 my-2">
+    <div class="col-lg-4 col-s-12">
+    <div class="form-group">
+      <label
+        for="account_level_1"
+        [ngClass]="fval.account_level_1.valid ? 'text-success' : ''"
+        ><i *ngIf="fval.account_level_1.valid" class="material-icons"
+          >check_circle</i
+        >Account Level 1:</label
+      >
+      <select
+        formControlName="account_level_1"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid':
+            (fval.account_level_1.touched || fval.account_level_1.dirty) &&
+            fval.account_level_1.errors
+        }"
+        autocomplete="off"
+        placeholder="Select The User Role"
+(input)="selectAccountLevel1Item($event)"
+
+      >
+        <option disabled></option>
+        <option >DEBIT</option>
+        <option >CREDIT</option>
+      </select>
+
+      <div
+        class="text-danger col"
+        *ngIf="
+          (fval.account_level_1.touched || fval.account_level_1.dirty) &&
+          fval.account_level_1.errors?.required
+        "
+      >
+        The account_level_1 is required
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-s-12">
+
+          <div class="form-group">
+            <label
+              for="account_level_2"
+              [ngClass]="fval.account_level_2.valid ? 'text-success' : ''"
+              ><i *ngIf="fval.account_level_2.valid" class="material-icons"
+                >check_circle</i
+              >Account Level 2:</label
+            >
+            <select
+              formControlName="account_level_2"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  (fval.account_level_2.touched || fval.account_level_2.dirty) &&
+                  fval.account_level_2.errors
+              }"
+              autocomplete="off"
+              placeholder="Select The User Role"
+              (input)="selectAccountLeve21Item($event)"
+              (blur)="onleavingAcL2()"
+            >
+              <option disabled></option>
+              <option *ngFor="let item3 of accountLevel2">{{
+                item3.account_level_2
+              }}</option>
+            </select>
+
+            <div
+              class="text-danger col"
+              *ngIf="
+                (fval.account_level_2.touched || fval.account_level_2.dirty) &&
+                fval.account_level_2.errors?.required
+              "
+            >
+              The account_level_2 is required
+            </div>
+
+            <div
+              class="text-danger col"
+              *ngIf="
+                (fval.account_level_2.touched || fval.account_level_2.dirty) &&
+                fval.account_level_2.errors?.belongToaccount_level_2s
+              "
+            >
+              Please select a valid account_level_2
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-4 col-s-12">
+
+        <div class="form-group">
+          <label
+            for="account_level_3"
+            [ngClass]="fval.account_level_3.valid ? 'text-success' : ''"
+            ><i *ngIf="fval.account_level_3.valid" class="material-icons"
+              >check_circle</i
+            >Account Level 3:</label
+          >
+          <select
+            formControlName="account_level_3"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                (fval.account_level_3.touched || fval.account_level_3.dirty) &&
+                fval.account_level_3.errors
+            }"
+            autocomplete="off"
+            placeholder="Select The User Role"
+          (change)="selectAccountLeve31Item($event)"
+
+          >
+            <option disabled></option>
+            <option *ngFor="let item3 of accountLevel3">{{
+              item3.account_level_3X
+            }}</option>
+          </select>
+
+          <div
+            class="text-danger col"
+            *ngIf="
+              (fval.account_level_3.touched || fval.account_level_3.dirty) &&
+              fval.account_level_3.errors?.required
+            "
+          >
+            The account_level_3 is required
+          </div>
+
+          <div
+            class="text-danger col"
+            *ngIf="
+              (fval.account_level_3.touched || fval.account_level_3.dirty) &&
+              fval.account_level_3.errors?.belongToaccount_level_3s
+            "
+          >
+            Please select a valid account_level_3
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-s-12">
+    <div class="form-group ">
+      <label
+        for="account_level_4"
+        [ngClass]="fval.account_level_4.valid ? 'text-success' : ''"
+        >The Chart Of Account<i
+          *ngIf="fval.account_level_4.valid"
+          class="material-icons"
+          >check_circle</i
+        ></label
+      >
+      <!-- <div class="input-group mb-2"> -->
+        <!-- <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-phone text-warning mx-auto" style="size: 50px">
+            </i>
+          </div>
+        </div> -->
+        <input
+          id="account_level_4"
+          formControlName="account_level_4"
+          type="text"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              (fval.account_level_4.touched ||
+                fval.account_level_4.dirty) &&
+              fval.account_level_4.errors
+          }"
+          placeholder="The Chart Of Account Like 'Cash And Cash Equivalents'"
+          autocomplete="off"
+
+          />
+
+      <div
+        class="text-danger col"
+        *ngIf="
+          (fval.account_level_4.touched ||
+            fval.account_level_4.dirty) &&
+          fval.account_level_4.errors?.required
+        "
+      >
+        The chart of account is required
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+  <div class="col-12 pb-5">
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-success"
+        [disabled]="!userForm.valid"
+      >
+        Create The Chart
+      </button>
+
+      <ngx-spinner
+        class="bg-warning bg-success"
+        size="small"
+        type="ball-spin"
+      >
+        <h4 class="text-light">Loading...</h4>
+      </ngx-spinner>
+
+      <ngx-alerts> </ngx-alerts>
+    </div>
+  </div>
+
+
+
+
+  <label class="col" *ngIf="errored" class="text-danger">
+    <i class="material-icons">cancel</i>
+
+    <ngx-alerts></ngx-alerts>
+  </label>
+
+
+  <div class="col" *ngIf="posted" class="text-success">
+    <i class="material-icons">check_circle</i>
+    <ngx-alerts></ngx-alerts>
+  </div>
+
+</form>
+</div>

@@ -1,0 +1,75 @@
+
+
+
+        <div class="d-flex flex-column">
+
+
+
+          <!-- <div class="container"> -->
+<div class="row d-flex flex-row justify-content-center">
+ <!-- <div class="col-xs-12 "></div> -->
+ <div class="col-xs-12 mx-2">
+   <h3 class="text-primary mb-0">ADMIN DASHBOARD</h3>
+  </div>
+ <!-- <div class="col-xs-12"></div> -->
+
+</div>
+          <div class="container-fluid">
+            <!-- <div class="d-sm-flex justify-content-between align-items-center my-4"> -->
+
+
+
+              <div class="jumbotron jumbotron-fluid mx-1">
+
+                <div class="card-header ">
+               <h4 class="text-info text-center">TOKEN PURCHASES APPROVALS</h4>
+              </div>
+
+
+              <div class="jumbotron jumbotron-fluid table-responsive">
+                   <table class="table table-striped ">
+               <thead >
+                <tr class="text-info">
+                   <th >Approve</th>
+                 <th>#</th>
+                    <th>Name</th>
+                 <th >Phone </th>
+                 <th >#Tokens Purchased</th>
+                 <th >Amount Equivalent</th>
+                <th >Approval Status</th>
+                </tr>
+                </thead>
+               <tbody>
+
+                <tr *ngFor="let clients of clientDetails;let i of index" class="text-success">
+                 <td> <button  class="btn btn-primary mr-5" [routerLink]="['/dashboarduser/editcustomer']">Edit</button></td>
+                 <td>{{ clients.account_level_1 }}</td>
+                <td>{{ clients.account_level_2 }</td>
+                 <!-- <td>{{ clients.customers_phone_number}}</td>
+                  <td>{{ clients.customers_number_plate }}</td>
+                   <td>{{ clients.stage_name }}</td>
+                   <td>{{ clients.chair_name }}</td>
+                   <td>{{ clients.chair_number }}</td>
+                   <td>{{ clients.l_limit|number }}</td> -->
+
+                      </tr>
+               </tbody>
+                </table>
+
+               </div>
+
+
+
+               <div class="card-footer text-muted text-center">
+                                       EDAD SMC:<span class="badge badge-warning"><strong> {{theCompany}}</strong> </span> The Branch:<span class="badge badge-danger"><strong>{{station}}</strong> </span>
+                                       </div>
+
+
+
+            </div>
+
+          <!-- </div> -->
+
+      </div>
+
+

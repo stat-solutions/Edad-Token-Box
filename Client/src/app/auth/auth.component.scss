@@ -1,0 +1,52 @@
+// #################### Common Header Style ######################################
+.jumbotron{
+  padding-bottom: 40px;
+}
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 0rem;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a{
+    padding: 3px 4px;
+    margin-left: 0px;
+    font-size: .8rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: none;
+  }
+
+  .dropdown-item{
+    background-color: none;
+
+  }
+
+  .dropdown-content .dropdown-item:hover {
+    background-color: transparent;
+    color: rgb(190,114,0) !important;
+  }
+  .dropdown-content .dropdown-item:active {
+    background-color: transparent !important;
+    color: rgb(190,114,0) !important;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover .dropdown-content {
+    background-color: transparent;
+  }

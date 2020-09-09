@@ -1,0 +1,605 @@
+<div
+  class="container-fluid col-xs-12 col-lg-8 d-flex  flex-row justify-content-center shadow-lg"
+>
+  <div class="jumbotron-fluid mx-3 my-5 col-xs-12 col-lg-7">
+    <!-- <div class=        "card mx-3 my-5 col-xs-12 col-lg-6 "> -->
+    <h1 class="d-flex flex-row justify-content-center mt-3 mx-auto">
+      <i class="fas fa-user-cog text-primary mx-auto" style="size: 50px"></i>
+    </h1>
+    <div class="card-body shadow-lg bg-light">
+      <h5
+        class="card-title  bg-primary text-light d-flex justify-content-center"
+      >
+        <span class="p-2">Register Smart Agent</span>
+      </h5>
+      <div class="pt-3">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label
+              for="full_name"
+              [ngClass]="fval.full_name.valid ? 'text-success' : ''"
+              ><i *ngIf="fval.full_name.valid" class="material-icons"
+                >check_circle</i
+              >Full Name:</label
+            >
+            <input
+              id="full_name"
+              formControlName="full_name"
+              type="text"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  (fval.full_name.touched || fval.full_name.dirty) &&
+                  fval.full_name.errors
+              }"
+              placeholder="Enter Name"
+              autocomplete="off"
+            />
+            <div
+              class="text-danger col"
+              *ngIf="
+                (fval.full_name.touched || fval.full_name.dirty) &&
+                fval.full_name.errors?.required
+              "
+            >
+              The full name is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label
+              for="national_id"
+              [ngClass]="fval.national_id.valid ? 'text-success' : ''"
+              ><i *ngIf="fval.national_id.valid" class="material-icons"
+                >check_circle</i
+              >National IDno.:</label
+            >
+            <input
+              id="national_id"
+              formControlName="national_id"
+              type="text"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  (fval.national_id.touched || fval.national_id.dirty) &&
+                  fval.national_id.errors
+              }"
+              placeholder="Enter National ID number"
+              autocomplete="off"
+            />
+            <div
+              class="text-danger col"
+              *ngIf="
+                (fval.national_id.touched || fval.national_id.dirty) &&
+                fval.national_id.errors?.required
+              "
+            >
+              The national id number is required
+            </div>
+            <!-- <label
+              class="col"
+              *ngIf="
+                (fval.national_id.touched || fval.national_id.dirty) &&
+                fval.national_id.invalid
+              "
+              [ngClass]="
+                fval.national_id.errors?.required ||
+                fval.national_id.errors?.minlength
+                  ? 'text-danger'
+                  : 'text-danger'
+              "
+            >
+              <i class="material-icons">{{
+                fval.national_id.errors?.required ||
+                fval.national_id.errors?.minlength
+                  ? "cancel"
+                  : "check_circle"
+              }}</i>
+              Enter Valid NIN
+            </label> -->
+            <label
+              class="col"
+              *ngIf="
+                (fval.national_id.touched || fval.national_id.dirty) &&
+                fval.national_id.invalid
+              "
+              [ngClass]="
+                fval.national_id.errors?.maxlength ||
+                fval.national_id.errors?.minlength
+                  ? 'text-danger'
+                  : 'text-danger'
+              "
+            >
+              <i class="material-icons">{{
+                fval.national_id.errors?.minlength ||
+                fval.national_id.errors?.maxlength
+                  ? "cancel"
+                  : "check_circle"
+              }}</i>
+              Enter Valid NIN
+            </label>
+
+          </div>
+
+          <div class="form-group">
+            <label
+              for="main_contact_number"
+              [ngClass]="fval.main_contact_number.valid ? 'text-success' : ''"
+              ><i *ngIf="fval.main_contact_number.valid" class="material-icons"
+                >check_circle</i
+              >Enter Mobile Number</label
+            >
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i
+                    class="fas fa-phone text-primo mx-auto"
+                    style="size: 50px"
+                  ></i>
+                </div>
+              </div>
+              <input
+                id="main_contact_number"
+                formControlName="main_contact_number"
+                type="text"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (fval.main_contact_number.touched ||
+                      fval.main_contact_number.dirty) &&
+                    fval.main_contact_number.errors
+                }"
+                placeholder="Mobile number like 07XXXXXXXX"
+                autocomplete="off"
+              />
+            </div>
+            <div
+              class="text-danger col"
+              *ngIf="
+                (fval.main_contact_number.touched ||
+                  fval.main_contact_number.dirty) &&
+                fval.main_contact_number.errors?.required
+              "
+            >
+              The main mobile number is required
+            </div>
+            <div
+              class="text-danger col"
+              *ngIf="
+                (fval.main_contact_number.touched ||
+                  fval.main_contact_number.dirty) &&
+                fval.main_contact_number.errors?.hasNumber
+              "
+            >
+              The main mobile number should be equal to 10 "digits"
+            </div>
+
+            <div
+              class="text-danger col"
+              *ngIf="fval.main_contact_number.errors?.alreadyRegistered"
+            >
+              {{ agentsNumber }} is already registered for smart agency!!!
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="sex" [ngClass]="fval.sex.valid ? 'text-success' : ''"
+              ><i *ngIf="fval.sex.valid" class="material-icons">check_circle</i
+              >Gender:</label
+            >
+            <input
+              type="text"
+              list="sex"
+              formControlName="sex"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  (fval.sex.touched || fval.sex.dirty) && fval.sex.errors
+              }"
+              autocomplete="off"
+              placeholder="Select The Gender"
+            />
+            <datalist id="sex" class="bg-danger">
+              <option>Male</option>
+              <option>Female</option>
+            </datalist>
+            <div
+              class="text-danger col"
+              *ngIf="
+                (fval.sex.touched || fval.sex.dirty) &&
+                fval.sex.errors?.required
+              "
+            >
+              Gender is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label
+              for="country_region"
+              [ngClass]="fval.country_region.valid ? 'text-success' : ''"
+              ><i *ngIf="fval.country_region.valid" class="material-icons"
+                >check_circle</i
+              >Country Region:</label
+            >
+
+            <input
+              type="text"
+              list="country_region"
+              formControlName="country_region"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  (fval.country_region.touched || fval.country_region.dirty) &&
+                  fval.country_region.errors
+              }"
+              autocomplete="off"
+              placeholder="Select The Country Region"
+              (input)="setCountryRegionId($event)"
+            />
+           
+            <datalist id="country_region">
+              <option *ngFor="let item3 of countryRegions">{{
+                item3.country_region_name
+              }}</option>
+            </datalist>
+
+            <div
+              class="text-danger col"
+              *ngIf="
+                (fval.country_region.touched || fval.country_region.dirty) &&
+                fval.country_region.errors?.required
+              "
+            >
+              The country_region is required
+            </div>
+
+            <div
+              class="text-danger col"
+              *ngIf="
+                (fval.country_region.touched || fval.country_region.dirty) &&
+                fval.country_region.errors?.belongTocountry_regions
+              "
+            >
+              Please select a valid country_region
+            </div>
+
+            <ngx-alerts></ngx-alerts>
+          </div>
+
+          <!-- <div class="form-group">
+          <label
+            for="date_of_birth"
+            [ngClass]="fval.date_of_birth.valid ? 'text-success' : ''"
+            ><i *ngIf="fval.date_of_birth.valid" class="material-icons"
+              >check_circle</i
+            >Date Of Birth:</label
+          >
+
+          <input
+            id="date_of_birth"
+            formControlName="date_of_birth"
+            type="text"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                (fval.date_of_birth.touched || fval.date_of_birth.dirty) &&
+                fval.date_of_birth.errors
+            }"
+            placeholder="Click to select Date Of Birth"
+            autocomplete="off"
+            class="form-control"
+            bsDatepicker
+            [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY', isAnimated: true }"
+            placement="side"
+          />
+          <div
+            class="text-danger col"
+            *ngIf="
+              (fval.date_of_birth.touched || fval.date_of_birth.dirty) &&
+              fval.date_of_birth.errors?.required
+            "
+          >
+            The date of birth is required
+          </div>
+        </div> -->
+
+          <!-- <div class="custom-control custom-switch  p-2 mx-5 my-3">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="customSwitch1"
+            (change)="onCheckChange($event)"
+          />
+          <label class="custom-control-label text-primary" for="customSwitch1"
+            >Register Through Agent</label
+          >
+        </div> -->
+
+          <!--                                                      <div class=             "custom-control custom-checkbox">
+
+          <input type=            "checkbox" class="custom-control-input" id="customCheck1" (change)="onCheckChange($event)">
+     <label class=           "custom-control-label" for="customCheck1">Register Through Agent</label>
+</div>                                                    -->
+
+          <!-- <div class="form-group" *ngIf="agentUsed">
+          <label
+            for="agents_contact_number"
+            [ngClass]="fval.agents_contact_number.valid ? 'text-success' : ''"
+            ><i
+            *ngIf="fval.agents_contact_number.valid"
+            class="material-icons"
+            >check_circle</i
+          >Agent's Contact Number</label
+          >
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i
+                  class="fas fa-phone text-primo mx-auto"
+                  style="size: 50px"
+                ></i>
+              </div>
+            </div>
+            <input
+              id="agents_contact_number"
+              formControlName="agents_contact_number"
+              type="text"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  (fval.agents_contact_number.touched ||
+                    fval.agents_contact_number.dirty) &&
+                  fval.agents_contact_number.errors
+              }"
+              placeholder="Mobile number like 07XXXXXXXX"
+              autocomplete="off"
+            />
+          </div>
+          <div
+            class="text-danger col"
+            *ngIf="
+              (fval.agents_contact_number.touched ||
+                fval.agents_contact_number.dirty) &&
+              fval.agents_contact_number.errors?.required
+            "
+          >
+            The agent's mobile number is required
+          </div>
+
+          <div
+          class="text-danger col"
+          *ngIf="
+            fval.agents_contact_number.errors?.notRegistered
+          "
+        >
+          {{agentsNumber}} is not registered for smart agency
+
+        </div>
+
+          <div
+            class="text-danger col"
+            *ngIf="
+              (fval.agents_contact_number.touched ||
+                fval.agents_contact_number.dirty) &&
+              fval.agents_contact_number.errors?.hasNumber
+            "
+          >
+            The agent's mobile number should be equal to 10 "digits"
+          </div>
+        </div> -->
+
+          <!-- <div class="form-group">
+          <label
+            for="edad_number_of_tokens"
+            [ngClass]="fval.edad_number_of_tokens.valid ? 'text-success' : ''"
+            ><i
+            *ngIf="fval.edad_number_of_tokens.valid"
+            class="material-icons"
+            >check_circle</i
+          >Order Token Stock:</label
+          >
+
+          <input
+            id="edad_number_of_tokens"
+            formControlName="edad_number_of_tokens"
+            type="text"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                (fval.edad_number_of_tokens.touched ||
+                  fval.edad_number_of_tokens.dirty) &&
+                fval.edad_number_of_tokens.errors
+            }"
+            autocomplete="off"
+            placeholder="Tokens starting with like 100"
+            (keyup)="onKey($event)"
+          />
+          <div
+            class="text-danger col"
+            *ngIf="
+              (fval.edad_number_of_tokens.touched ||
+                fval.edad_number_of_tokens.dirty) &&
+              fval.edad_number_of_tokens.errors?.required
+            "
+          >
+            Number of Tokens starting with are required
+          </div>
+          <div
+            class="text-danger col"
+            *ngIf="
+              (fval.edad_number_of_tokens.touched ||
+                fval.edad_number_of_tokens.dirty) &&
+              fval.edad_number_of_tokens.errors?.maxlength
+            "
+          >
+            Number of Tokens starting with should have only 9 digits
+          </div>
+          <div
+            class="text-danger col"
+            *ngIf="
+              (fval.edad_number_of_tokens.touched ||
+                fval.edad_number_of_tokens.dirty) &&
+              fval.edad_number_of_tokens.errors?.hasNumber
+            "
+          >
+            Number of Tokens starting with should be in digits/numbers
+          </div>
+        </div> -->
+
+          <div class="form-group">
+            <label
+              for="password"
+              [ngClass]="fval.password.valid ? 'text-success' : ''"
+              ><i *ngIf="fval.password.valid" class="material-icons"
+                >check_circle</i
+              >Enter Password:</label
+            >
+
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i
+                    class="fas fa-lock text-primo mx-auto"
+                    style="size: 50px"
+                  ></i>
+                </div>
+              </div>
+              <input
+                id="password"
+                formControlName="password"
+                type="password"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (fval.password.touched || fval.password.dirty) &&
+                    fval.password.errors
+                }"
+                placeholder="Password"
+                autocomplete="off"
+              />
+            </div>
+
+            <label
+              class="text-danger col"
+              *ngIf="
+                (fval.password.touched || fval.password.dirty) &&
+                fval.password.errors?.required
+              "
+            >
+              Password is Required!
+            </label>
+
+            <label
+              class="col"
+              *ngIf="
+                (fval.password.touched || fval.password.dirty) &&
+                fval.password.invalid
+              "
+              [ngClass]="
+                fval.password.errors?.required ||
+                fval.password.errors?.minlength
+                  ? 'text-danger'
+                  : 'text-danger'
+              "
+            >
+              <i class="material-icons">{{
+                fval.password.errors?.required ||
+                fval.password.errors?.minlength
+                  ? "cancel"
+                  : "check_circle"
+              }}</i>
+              Minimum of four digits!!!
+            </label>
+            <label
+              class="col"
+              *ngIf="
+                (fval.password.touched || fval.password.dirty) &&
+                fval.password.invalid
+              "
+              [ngClass]="
+                fval.password.errors?.required ||
+                fval.password.errors?.minlength
+                  ? 'text-danger'
+                  : 'text-danger'
+              "
+            >
+              <i class="material-icons">{{
+                fval.password.errors?.required ||
+                fval.password.errors?.maxlength
+                  ? "cancel"
+                  : "check_circle"
+              }}</i>
+              Maximum four digits allowed!!!
+            </label>
+
+            <label
+              class="col"
+              *ngIf="
+                (fval.password.touched || fval.password.dirty) &&
+                fval.password.invalid
+              "
+              [ngClass]="
+                fval.password.hasError('required') ||
+                fval.password.hasError('hasNumber')
+                  ? 'text-danger'
+                  : 'text-danger'
+              "
+            >
+              <i class="material-icons">{{
+                fval.password.hasError("required") ||
+                fval.password.hasError("hasNumber")
+                  ? "cancel"
+                  : "check_circle"
+              }}</i>
+              Only digits are Allowed!!
+            </label>
+          </div>
+
+          <div class="row d-flex flex-row">
+            <div class="col">
+              <div class="form-group">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  [disabled]="!userForm.valid"
+                >
+                  Submit
+                </button>
+
+                <ngx-spinner
+                  class="bg-danger"
+                  size="medium"
+                  type="ball-scale-multiple"
+                >
+                  <p class="text-light">Please Wait...</p>
+                </ngx-spinner>
+
+                <label class="col" *ngIf="errored" class="text-danger">
+                  <i class="material-icons">Cancel</i>
+
+                  <ngx-alerts></ngx-alerts>
+                </label>
+
+                <label class="col" *ngIf="posted" class="text-danger">
+                  <i class="material-icons">check_circle</i>
+                  <ngx-alerts></ngx-alerts>
+                </label>
+
+                <button
+                  type="button"
+                  class="btn btn-danger mx-2"
+                  (click)="returnHome()"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+        <!-- </div>  -->
+        <!-- </div>   -->
+      </div>
+    </div>
+  </div>

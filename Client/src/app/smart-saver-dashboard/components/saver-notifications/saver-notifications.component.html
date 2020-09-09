@@ -1,0 +1,54 @@
+
+
+    <div class="container">
+
+<form [formGroup]='userForm' ngSubmit='processForm()'>
+<p>
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" formControlName='name'>
+
+</p>
+
+
+      <div class="row">
+<div class="col">
+
+  <div formArrayName='nextOfKin' *ngFor="let kin of theNextOfKin.controls; let i=index;">
+
+<div [formGroupName]="i">
+  <div class="form-group">
+<input type="text" formControlName='next_of_kin_name'>
+
+
+<input type="text" formControlName='next_of_kin_age'>
+
+
+<select formControlName='relationship'>
+
+  <option>Father</option>
+  <option>Mother</option>
+  <option>Grand Father</option>
+  <option>Uncle</option>
+</select>
+<button class="btn btn-danger btn-small" (click)='RemoveNextOfKinRecord(i)'>Remove Next Of Kin</button>
+</div>
+
+</div>
+
+
+
+
+  </div>
+
+  <button class="btn btn-primary" (click)='addNextOfKinRecord()'>Add Next Of Kin</button>
+
+</div>
+
+      </div>
+
+      <p>
+        <button class="btn-small btn-success" type="submit" [disabled]='userForm.valid'>Submit</button>
+      </p>
+
+    </form>
+    </div>

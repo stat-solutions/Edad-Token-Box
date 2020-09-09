@@ -1,0 +1,81 @@
+
+
+        <div class="d-flex flex-column">
+
+
+
+          <!-- <div class="container"> -->
+<div class="row d-flex flex-row justify-content-center">
+ <!-- <div class="col-xs-12 "></div> -->
+ <div class="col-xs-12 mx-2">
+   <h3 class="text-primary mb-0">ADMIN DASHBOARD</h3>
+  </div>
+ <!-- <div class="col-xs-12"></div> -->
+
+</div>
+          <div class="container-fluid">
+            <!-- <div class="d-sm-flex justify-content-between align-items-center my-4"> -->
+
+
+
+              <div class="jumbotron jumbotron-fluid mx-1">
+
+                <div class="card-header ">
+               <h4 class="text-info text-center">TOKEN PURCHASES APPROVALS</h4>
+              </div>
+
+              <div class="table-responsive jumbotron jumbotron-fluid">
+              <table class="table table-striped  thead-dark table-hover table-sm"  style="background:transparent !important">
+                  <thead >
+                    <tr class="text-warning">
+                      <th >Approve</th>
+                    <th>#</th>
+                    <th>Trn Date</th>
+                    <th>Trn Time</th>
+                    <th>Type</th>
+                       <th>Name</th>
+                    <th >Phone </th>
+                    <th >#Tokens Withdrawn</th>
+                    <th >Amount Equivalent</th>
+                   <!-- <th >Approval Status</th> -->
+                   </tr>
+                   </thead>
+                  <tbody>
+
+                   <tr *ngFor="let clients of clientDetails; let i=index;let odd=odd;let first=first;let last=last"
+
+                    [class.bg-secondary]="odd"
+                    [class.bg-danger]="!odd"
+
+                    class="text-light" >
+                     <td> <button *ngIf="!last" class="btn btn-info mr-1" (click)="approveTokens(clients.lId)">Approve</button><button *ngIf="!last" class="btn btn-warning mr-1" (click)="RejectTokenApproval(clients.lId)">Reject</button></td>
+                     <td>{{ clients.id }}</td>
+                     <td>{{ clients.trn_date }}</td>
+                       <td>{{ clients.trn_time}}</td>
+                       <td>{{ clients.trn_type}}</td>
+                       <td>{{ clients.name }}</td>
+                        <td>{{ clients.phone }}</td>
+                        <td>{{ clients.tokens_purchased }}</td>
+                        <td>{{ clients.expected_amount | number}}</td>
+                        <ngx-alerts> </ngx-alerts>
+                         </tr>
+
+                  </tbody>
+                  <br/>
+                   </table>
+                  </div>
+                  <label class="text-danger text-center mx-5 my-2"><h1 class="text-success text-center"> Running Balance of Tokens :EDT  {{balance|number}}</h1></label>
+
+               <div class="card-footer text-muted text-center">
+                                       EDAD SMC:<span class="badge badge-warning"><strong> {{theCompany}}</strong> </span> The Branch:<span class="badge badge-danger"><strong>{{station}}</strong> </span>
+                                       </div>
+
+
+
+            </div>
+
+          <!-- </div> -->
+
+      </div>
+
+

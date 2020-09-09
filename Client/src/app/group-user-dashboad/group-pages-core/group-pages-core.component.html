@@ -1,0 +1,30 @@
+<div class="flux-container" [attr.theme-layout]="themeLayout" [attr.device-type]="setDeviceType">
+  <div class="overlay-box"
+    *ngIf="setVerticalNavbarEffect === 'overlay' && setDefaultNavbar === 'offcanvas' && setToggleStatus === false"
+    (click)="changeTheToggleStatus()"></div>
+  <div class="overlay-box"
+    *ngIf="setNavLayout === 'horizontal' && setDeviceType === 'mobile' && setToggleStatus === false"
+    (click)="changeTheToggleStatus()"></div>
+  <div class="flux-wrapper">
+
+    <app-header-group [navLayout]="setNavLayout" [defaultNavbar]="setDefaultNavbar" [toggleNavbar]="setToggleNavbar"
+      [toggleStatus]="setToggleStatus" [navbarEffect]="setVerticalNavbarEffect" [headerColorTheme]="setHeaderColorTheme"
+      [navbarColorTheme]="setNavbarColorTheme" [activeNavColorTheme]="setActiveNavColorTheme"
+      [headerHeight]="setHeaderHeight" [leftHeaderColorTheme]="setLeftHeaderColorTheme"
+      [collapsedLeftHeader]="setCollapsedLeftHeader" [deviceType]="setDeviceType"></app-header-group>
+
+    <app-left-panel-group [navLayout]="setNavLayout" [defaultNavbar]="setDefaultNavbar" [toggleNavbar]="setToggleNavbar"
+      [toggleStatus]="setToggleStatus" [navbarEffect]="setVerticalNavbarEffect" [headerColorTheme]="setHeaderColorTheme"
+      [navbarColorTheme]="setNavbarColorTheme" [activeNavColorTheme]="setActiveNavColorTheme"
+      [deviceType]="setDeviceType">
+    </app-left-panel-group>
+
+    <app-group-content-section [navLayout]="setNavLayout" [defaultNavbar]="setDefaultNavbar" [toggleNavbar]="setToggleNavbar"
+      [toggleStatus]="setToggleStatus" [navbarEffect]="setVerticalNavbarEffect" [headerColorTheme]="setHeaderColorTheme"
+      [navbarColorTheme]="setNavbarColorTheme" [activeNavColorTheme]="setActiveNavColorTheme"
+      [deviceType]="setDeviceType">
+    </app-group-content-section>
+    <app-right-panel-group></app-right-panel-group>
+
+  </div>
+</div>

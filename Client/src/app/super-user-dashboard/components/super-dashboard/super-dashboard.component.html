@@ -1,0 +1,58 @@
+
+ <!-- <div class="container-fluid "> -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex flex-row hidden-sm-down mx-2">
+
+  <button class="navbar-toggler" type="button"  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" [attr.aria-expanded]="isCollapsed" aria-label="Toggle navigation" (click)="toggleArial()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div [ngClass]="toggleClass" id="navbarSupportedContent">
+
+
+    <ul class="navbar-nav mr-3 my-2 my-lg-0">
+      <li>
+        <button class="btn btn-info mx-2" type="button"   routerLink='/thesuperdashboard/approveadminuser' (click)="toggleArial()">
+            <i class="fas fa-user-friends"></i>
+      APPROVE ADMIN USER
+        </button></li>
+      <li>
+        <button class="btn btn-info mx-2" type="button"   routerLink='/thesuperdashboard/createchartaccount' (click)="toggleArial()">
+            <i class="fas fa-user-friends"></i>
+      CREATE THE CHART OF ACCOUNT
+        </button></li>
+
+<li>
+<button class="btn btn-info mx-2" type="button"   routerLink='/thesuperdashboard/createaccount' (click)="toggleArial()">
+  <i class="fas fa-user-friends"></i>
+CREATE THE ACCOUNT
+</button>
+</li>
+<li>
+  <button class="btn btn-info mx-2" type="button" routerLink="/dashboarduser/post_trn2"  (click)="toggleArial()">
+    <i class="fas fa-coins"></i>
+    SET UP SPECIAL ACCOUNTS
+  </button>
+
+</li>
+</ul>
+
+
+<ul class="navbar-nav mr-2 my-2 my-lg-0">
+  <button class="btn btn-success mx-2" type="button"  routerLink='/dashboarduser/stage' (click)="toggleArial()">
+    <i class="fas fa-air-freshener"></i>
+  LEDGER REPORTS
+  </button>
+    <button class="btn btn-warning mx-2" type="button"  routerLink='/dashboarduser/enroll' (click)="toggleArial()">
+        <i class="fas fa-cog" ></i>
+        OTHER SETTINGS
+      </button>
+
+
+</ul>
+
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<!-- </div> -->
+

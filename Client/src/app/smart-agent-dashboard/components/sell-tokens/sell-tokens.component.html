@@ -1,0 +1,205 @@
+<div class="jumbotron jumbotron-fluid mx-4" style="background:transparent !important">
+  <div class="card-header ">
+    <h4 class="text-info text-center">Sell Tokens</h4>
+  </div>
+  <form [formGroup]="userForm" (ngSubmit)="sellTheTokens()">
+    <div class="form-group">
+      <label for="main_contact_number" [ngClass]="fval.main_contact_number.valid ? 'text-success' : ''"><i
+          *ngIf="fval.main_contact_number.valid" class="material-icons">check_circle</i>Enter Mobile Number</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-phone text-primo mx-auto" style="size: 50px"></i>
+          </div>
+        </div>
+        <input id="main_contact_number" formControlName="main_contact_number" type="text" class="form-control"
+          [ngClass]="{
+  'is-invalid':
+  (fval.main_contact_number.touched ||
+  fval.main_contact_number.dirty) &&
+  fval.main_contact_number.errors
+  }" placeholder="Mobile number like 07XXXXXXXX" autocomplete="off" />
+      </div>
+      <div class="text-danger col" *ngIf="
+  (fval.main_contact_number.touched ||
+  fval.main_contact_number.dirty) &&
+  fval.main_contact_number.errors?.required
+  ">
+        The main mobile number is required
+      </div>
+      <div class="text-danger col" *ngIf="
+  (fval.main_contact_number.touched ||
+  fval.main_contact_number.dirty) &&
+  fval.main_contact_number.errors?.hasNumber
+  ">
+        The main mobile number should be equal to 10 "digits"
+      </div>
+    </div>
+    <div class="row d-flex flex-row">
+      <div class="col">
+        <div class="form-group">
+          <button type="button" class="btn btn-success" [disabled]="!fval.main_contact_number.valid"
+            (click)='changeUserRoleValue()'>Check  <ngx-alerts></ngx-alerts></button>
+          <ngx-spinner class="bg-success" size="medium" type="line-spin-fade">
+            <p class="text-light">Wait!!!...</p>
+          </ngx-spinner>
+          <label class="col" *ngIf="errored" class="text-danger">
+            <i class="material-icons">cancel</i>
+            <ngx-alerts></ngx-alerts>
+          </label>
+          <label class="col" *ngIf="posted" class="text-success">
+            <i class="material-icons">check_circle</i>
+            <ngx-alerts></ngx-alerts>
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group" *ngIf='userRolesPresent'>
+      <label
+        for="user_role_name"
+        [ngClass]="fval.user_role_name.valid ? 'text-success' : ''"
+        ><i *ngIf="fval.user_role_name.valid" class="material-icons"
+          >check_circle</i
+        >User Role:</label
+      >
+      <select
+        formControlName="user_role_name"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid':
+            (fval.user_role_name.touched || fval.user_role_name.dirty) &&
+            fval.user_role_name.errors
+        }"
+        autocomplete="off"
+        placeholder="Select The User Role"
+        (input)="setRoleId($event)">
+        <option disabled></option>
+        <option *ngFor="let item3 of userRoleInfo1">{{
+          item3.user_role_name
+        }}</option>
+      </select>
+
+      <div
+        class="text-danger col"
+        *ngIf="
+          (fval.user_role_name.touched || fval.user_role_name.dirty) &&
+          fval.user_role_name.errors?.required
+        "
+      >
+        The user_role_name is required
+      </div>
+
+      <div
+        class="text-danger col"
+        *ngIf="
+          (fval.user_role_name.touched || fval.user_role_name.dirty) &&
+          fval.user_role_name.errors?.belongTouser_role_names
+        "
+      >
+        Please select a valid user_role_name
+      </div>
+
+      <ngx-alerts></ngx-alerts>
+    </div>
+
+    <table class="table table-condensed table-borderless table-responsive jumbotron-fluid" *ngIf='checkedOk'>
+      <tbody>
+        <tr>
+          <td class="text-secondary ">CUSTOMER NAME:</td>
+          <td>
+            <h4><span class="badge badge-pill badge-success">{{loanDetails.name}}</span></h4>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-secondary ">NATIONAL ID:</td>
+          <td>
+            <h4><span class="badge badge-pill badge-success">{{loanDetails.national_id}}</span></h4>
+          </td>
+        </tr>
+        <!-- <tr>
+          <td class="text-secondary ">ACCOUNT TYPE:</td>
+          <td>
+            <h4><span class="badge badge-pill badge-success"></span></h4>
+          </td>
+        </tr> -->
+      </tbody>
+    </table>
+
+    <div class="form-group">
+      <label for="tokens_to_sell" [ngClass]="fval.tokens_to_sell.valid ? 'text-success' : ''">Number Of Tokens To
+        Sell:<i *ngIf="fval.tokens_to_sell.valid" class="material-icons">check_circle</i></label>
+      <input type="text" list="tokens_to_sell" formControlName="tokens_to_sell" class="form-control"
+        [ngClass]=" { 'is-invalid': (fval.tokens_to_sell.touched||fval.tokens_to_sell.dirty) && fval.tokens_to_sell.errors }"
+        autocomplete="off" placeholder="Enter Number Of Tokens"  (keyup)="changeForm()">
+        <!-- (keyup)="onKey($event)" -->
+      <div class="text-danger col"
+        *ngIf="(fval.tokens_to_sell.touched||fval.tokens_to_sell.dirty)  && fval.tokens_to_sell.errors?.required">
+        The tokens to sell is required</div>
+      <div class="text-danger col"
+        *ngIf="(fval.tokens_to_sell.touched||fval.tokens_to_sell.dirty)  && fval.tokens_to_sell.errors?.maxLength">
+        Please enter valid tokens to sell</div>
+      <div class="text-danger col"
+        *ngIf="(fval.tokens_to_sell.touched||fval.tokens_to_sell.dirty)  && fval.tokens_to_sell.errors?.minlength">
+        Please enter valid tokens to sell</div>
+      <div class="text-danger col"
+        *ngIf="(fval.tokens_to_sell.touched||fval.tokens_to_sell.dirty)  && fval.tokens_to_sell.errors?.hasNumber">
+        Please enter valid tokens to sell</div>
+    </div>
+
+
+    <div class="form-group">
+
+      <h5 ><span class="badge badge-info">Amount Equivalent : {{amountDue|currency:"UGX"}}</span></h5>
+
+
+
+       <div class="text-danger col" *ngIf="(fval.amount_due.touched||fval.amount_due.dirty)  && fval.amount_due.errors?.required">The amount to borrow is required</div>
+       <div class="text-danger col" *ngIf="(fval.amount_due.touched||fval.amount_due.dirty)  && fval.amount_due.errors?.maxLength">Please enter  valid amount to borrow</div>
+       <div class="text-danger col" *ngIf="(fval.amount_due.touched||fval.amount_due.dirty)  && fval.amount_due.errors?.minlength">Please enter  valid amount to borrow</div>
+       <div class="text-danger col" *ngIf="(fval.amount_due.touched||fval.amount_due.dirty)  && fval.amount_due.errors?.hasNumber">Please enter  valid amount to borrow</div>
+        <!-- <ngx-alerts></ngx-alerts> -->
+         </div>
+
+    <div class="row d-flex flex-row" *ngIf='checkedOk'>
+      <div class="col">
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Submit</button>
+          <button class="btn btn-secondary mx-2" (click)="refresh()">Cancel</button>
+          <p class="text-light">Wait!!!...</p>
+          <label class="col" *ngIf="errored" class="text-danger">
+            <i class="material-icons">cancel</i>
+          </label>
+          <label class="col" *ngIf="posted" class="text-success">
+            <i class="material-icons">check_circle</i>
+          </label>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="card-footer text-muted text-center">
+    EDAD SMC:<span class="badge badge-warning"><strong> {{theCompany}}</strong> </span> Seeta Head Office:<span
+      class="badge badge-danger"><strong>{{station}}</strong> </span>
+  </div>
+
+  <ng-template #template>
+
+    <div class="modal-header bg-success text-light">
+      <h4 class="modal-title pull-right"> SELL TOKENS</h4>
+  </div>
+
+  <div class="modal-body bg-success text-light">
+     <h1 class="my-3 mx-3">Transaction Successful</h1>
+     <P class="my-3 mx-3">Check both of your Dashboards for changes in your balances!!!</P>
+      <!-- <div class="my-3 mx-3">Number Plate: {{data.number_plate}}</div>
+      <div class="my-3 mx-3">Transaction Id: {{data.txn_id}}</div>
+      <div class="my-3 mx-3">Borrowed: {{data.amount_to_borrow|number}}</div>
+      <div class="my-3 mx-3">Amount Due: {{data.amount_due|number}}</div> -->
+     <button type="button" class="btn btn-info my-3 mx-3" (click)="modalRef.hide()">
+          <span aria-hidden="true" class="text-light">OK</span>
+        </button>
+  </div>
+  </ng-template>
+
+</div>
