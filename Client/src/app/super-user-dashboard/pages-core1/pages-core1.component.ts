@@ -33,6 +33,7 @@ export class PagesCore1Component implements OnInit {
     this.layoutService.dfNavbarCast.subscribe(
       dfNavbar => (this.setDefaultNavbar = dfNavbar)
     );
+    
     this.layoutService.toggleNavbarCast.subscribe(
       tNavbar => (this.setToggleNavbar = tNavbar)
     );

@@ -1,52 +1,165 @@
 // #################### Common Header Style ######################################
-.jumbotron{
+.navbar-toggler-icon {
+  border:none;
+}
+.navbar-toggler, .navbar-toggler:hover, .navbar-toggler:focus, .navbar-toggler:active{
+  background:none;
+  border:none;
+  // color:#000;
+  // // and so on according to what style u want...
+}
+button.navbar-toggle:hover, button.navbar-toggle:focus{
+  background:none;
+  border:none;
+  // color:#000;
+  // // and so on according to what style u want...
+}
+.jumbotron {
   padding-bottom: 40px;
 }
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    margin-top: 0rem;
-  }
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 0rem;
+}
 
-  .dropdown-content {
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 170px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding: 3px 4px;
+  margin-left: 0px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: none;
+}
+
+.dropdown-item {
+  background-color: none;
+}
+
+.dropdown-content .dropdown-item:hover {
+  background-color: transparent;
+  color: rgb(190, 114, 0) !important;
+}
+.dropdown-content .dropdown-item:active {
+  background-color: transparent !important;
+  color: rgb(190, 114, 0) !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  background-color: transparent;
+}
+
+//media queries
+@media (min-width: 320px) {
+}
+
+@media (min-width: 360px) {
+}
+
+@media (min-width: 375px) {
+  .navbar-brand {
+    padding-right: 30px !important;
+    margin-right: 30px !important;
+  }
+}
+
+@media (min-width: 410px) {
+  .navbar-brand {
+    padding-right: 50px !important;
+    margin-right: 30px !important;
+  }
+}
+
+@media (min-width: 414px) {
+  .navbar-brand {
+    padding-right: 55px !important;
+  }
+}
+
+@media (min-width: 440px) {
+  .navbar-brand {
+    padding-right: 90px !important;
+  }
+}
+
+@media (min-width: 568px) {
+}
+
+@media (min-width: 640px) {
+  .navbar-brand {
+    padding-right: 165px !important;
+  }
+}
+
+@media (min-width: 730px) {
+  .navbar-brand {
+    padding-right: 240px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-brand {
+    padding-right: 310px !important;
+  }
+}
+
+@media (min-width: 812px) {
+  .navbar-brand {
+    padding-right: 320px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .register {
     display: none;
-    position: absolute;
-    min-width: 170px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
   }
+  .navbar-brand {
+    margin-right: 40px !important;
+    padding-right: 0px !important;
+  }
+  .nav-link {
+    font-size: 11px;
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+    padding-right: 7px !important;
+    padding-left: 7px !important;
+  }
+}
 
-  .dropdown-content a{
-    padding: 3px 4px;
-    margin-left: 0px;
-    font-size: .8rem;
-    font-weight: 700;
-    text-decoration: none;
-    display: block;
-  }
+@media (min-width: 1100px) {
+}
 
-  .dropdown-content a:hover {
-    background-color: none;
+@media (min-width: 1280px) {
+  .navbar-brand {
+    margin-left: 10px !important;
+    padding-left: 7px !important;
+    margin-right: 140px !important;
+    padding-right: 200px !important;
   }
+  .navbar-nav {
+    margin-left: 120px !important;
+    padding-left: 180px !important;
+  }
+  .nav-link {
+    font-size: 15px;
+  }
+}
 
-  .dropdown-item{
-    background-color: none;
-
-  }
-
-  .dropdown-content .dropdown-item:hover {
-    background-color: transparent;
-    color: rgb(190,114,0) !important;
-  }
-  .dropdown-content .dropdown-item:active {
-    background-color: transparent !important;
-    color: rgb(190,114,0) !important;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .dropdown:hover .dropdown-content {
-    background-color: transparent;
-  }
+@media (min-width: 1320px) {
+}

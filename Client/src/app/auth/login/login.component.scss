@@ -1,17 +1,164 @@
-.bg-light{
-  margin-bottom: 1.8rem;
+.container-fluid {
+  height: 74%;
+  margin-bottom: 0rem;
 }
-.container-fluid{
-  height: 80%;
-  margin-bottom: 0rem
+.jumbotron {
+  height: 97%;
+  padding-bottom: 1.4rem !important;
 }
-.jumbotron{
-  height: 95%;
-  padding-bottom: 3rem
-}
-.btn{
+.btn {
   width: 100%;
 }
-.card-title{
+.btn-info {
+  color: rgb(172, 104, 2);
+  background-color: transparent;
+  border-color: rgb(172, 104, 2);
+}
+
+.btn-info:hover {
+  color: #d9dbdd;
+  background-color: rgb(172, 104, 2);
+  border-color: rgb(172, 104, 2);
+}
+
+.btn-info:focus {
+  color: #d9dbdd;
+  background-color: rgb(172, 104, 2);
+  border-color: rgb(172, 104, 2);
+}
+.card-title {
   border-radius: 2px;
+}
+.bg-primob {
+  background-color: rgb(172, 104, 2);
+}
+.text-primob {
+  color: rgb(172, 104, 2);
+}
+
+
+
+//media queries
+@media (min-width: 320px) {
+}
+
+@media (min-width: 360px) {
+  .jumbotron {
+    height: 93%;
+    padding-bottom: 1.4rem !important;
+  }
+}
+
+@media (min-width: 375px) {
+  .container-fluid {
+    padding-bottom: 6.4rem !important;
+  }
+  .jumbotron {
+    max-width: 345px;
+    margin-top: 40px !important;
+    margin-bottom: 0px !important;
+    padding-top: 1.4rem !important;
+    padding-bottom: 0.8rem !important;
+  }
+}
+
+@media (min-width: 410px) {
+  .container-fluid {
+    padding-bottom: 5.4rem !important;
+  }
+  .jumbotron {
+    height: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (min-width: 440px) {
+  .container-fluid {
+    padding-bottom: 1.6rem !important;
+  }
+  .jumbotron {
+    height: 100%;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding-top: .6rem !important;
+  }
+}
+
+@media (min-width: 568px) {
+  .container-fluid {
+    height: auto !important;
+    margin-bottom: 0px !important;
+    padding-bottom: 2.0rem !important;
+  }
+  .jumbotron {
+    height: 90% !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding-top: .6rem !important;
+    padding-bottom: 0rem !important;
+  }
+}
+
+@media (min-width: 640px) {
+}
+
+@media (min-width: 768px) {
+  .container-fluid {
+    padding-bottom: 20rem !important;
+  }
+  .jumbotron {
+    margin-top: 90px !important;
+    margin-bottom: 0px !important;
+    padding-top: 1.4rem !important;
+    padding-bottom: 0.8rem !important;
+  }
+}
+
+@media (min-width: 812px) {
+  .container-fluid {
+    padding-bottom: 4rem !important;
+  }
+  .jumbotron {
+    margin-top: 20px !important;
+    margin-bottom: 0px !important;
+    padding-top: 1.4rem !important;
+    padding-bottom: 0.8rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-fluid {
+    padding-bottom: 34rem !important;
+  }
+  h5 {
+    font-size: 22px !important;
+  }
+  .jumbotron {
+    margin-top: 240px !important;
+    margin-bottom: 0px !important;
+    padding-top: 1.4rem !important;
+    padding-bottom: 0.8rem !important;
+  }
+}
+
+@media (min-width: 1100px) {
+}
+
+@media (min-width: 1280px) {
+  h5 {
+    font-size: 24px !important;
+  }
+  .container-fluid {
+    padding-bottom: 12rem !important;
+  }
+  .jumbotron {
+    margin-top: 80px !important;
+    margin-bottom: 0px !important;
+    padding-top: 1.4rem !important;
+    padding-bottom: 0.8rem !important;
+  }
+}
+
+@media (min-width: 1320px) {
 }
