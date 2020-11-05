@@ -1,5 +1,6 @@
 // #################### Common Header Style ######################################
 .navbar-toggler-icon {
+  // color:#000;
   border:none;
 }
 .navbar-toggler, .navbar-toggler:hover, .navbar-toggler:focus, .navbar-toggler:active{
@@ -50,11 +51,11 @@ button.navbar-toggle:hover, button.navbar-toggle:focus{
 
 .dropdown-content .dropdown-item:hover {
   background-color: transparent;
-  color: rgb(190, 114, 0) !important;
+  color: rgb(172, 104, 2) !important;
 }
 .dropdown-content .dropdown-item:active {
   background-color: transparent !important;
-  color: rgb(190, 114, 0) !important;
+  color: rgb(172, 104, 2) !important;
 }
 
 .dropdown:hover .dropdown-content {
@@ -64,6 +65,29 @@ button.navbar-toggle:hover, button.navbar-toggle:focus{
 .dropdown:hover .dropdown-content {
   background-color: transparent;
 }
+
+h3{
+  font-size: 1.0rem;
+}
+
+.navbar-brand {
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    padding-right: .35rem;
+    margin-right: .35rem;
+    font-size: 1.1rem;
+    height: 2.9rem;
+}
+
+.text-info {
+  color: #232629 !important
+}
+
+a.text-info:focus,
+a.text-info:hover {
+  color: #14181af5 !important
+}
+
 
 //media queries
 @media (min-width: 320px) {

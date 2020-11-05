@@ -1,13 +1,35 @@
-.container-fluid {
-  height: 74%;
-  margin-bottom: 0rem;
-}
-.jumbotron {
-  height: 97%;
-  padding-bottom: 1.4rem !important;
-}
-.btn {
+.card-body {
+  height: inherit;
   width: 100%;
+  max-width: 300px;
+  min-width: 260px;
+  min-height: 410px !important;
+  max-height: 480px !important;
+  margin-bottom: 0rem;
+  border-radius: 8px;
+contain: auto;
+}
+
+.btn {
+  width: 100% !important;
+  border-radius: 15px;
+}
+
+.text-brown {
+  color: #ac6802 !important
+}
+
+a.text-brown:focus,
+a.text-brown:hover {
+  color: rgb(196, 119, 5) !important
+}
+.text-info {
+  color: #232629 !important
+}
+
+a.text-info:focus,
+a.text-info:hover {
+  color: #14181af5 !important
 }
 .btn-info {
   color: rgb(172, 104, 2);
@@ -15,150 +37,230 @@
   border-color: rgb(172, 104, 2);
 }
 
-.btn-info:hover {
+.btn-info:hover, .btn-info:focus, .btn-info:active {
   color: #d9dbdd;
   background-color: rgb(172, 104, 2);
   border-color: rgb(172, 104, 2);
 }
-
+.btn-info.focus,
 .btn-info:focus {
-  color: #d9dbdd;
-  background-color: rgb(172, 104, 2);
-  border-color: rgb(172, 104, 2);
+  box-shadow: 0 0 0 .2rem rgb(158, 98, 7);
 }
-.card-title {
-  border-radius: 2px;
-}
-.bg-primob {
-  background-color: rgb(172, 104, 2);
-}
-.text-primob {
+.btn-info.disabled,
+.btn-info:disabled {
   color: rgb(172, 104, 2);
+  background-color: transparent;
+  border-color: rgb(156, 105, 28);
+}
+
+.pointerCursor {
+  cursor: pointer;
+}
+
+//styling of color of placeholder
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:    rgb(187, 190, 192);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    rgb(187, 190, 192);
+  opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+ color:    rgb(187, 190, 192);
+ opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:    rgb(187, 190, 192);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color:    rgb(187, 190, 192);
+}
+::placeholder { /* Most modern browsers support this now. */
+  color:    rgb(187, 190, 192);
 }
 
 
 
-//media queries
+//Media queries
 @media (min-width: 320px) {
+  .head-icon {
+    margin-top: 0px !important;
+    margin-bottom: 7px !important;
+  }
+  .card-body {
+    margin-top: 0px !important;
+    padding-top: 1px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 0px !important;
+  }
+  .container-fluid {
+    padding-bottom: 0px !important;
+  }
+  .jumbotron-fluid {
+    margin-bottom: 0px !important;
+  }
 }
+
 
 @media (min-width: 360px) {
-  .jumbotron {
-    height: 93%;
-    padding-bottom: 1.4rem !important;
-  }
+.card-body {
+  max-width: 350px;
+  min-width: 330px;
+  margin-bottom: 30px !important;
 }
+.jumbotron-fluid {
+  margin-bottom: 14px !important;
+}
+
+}
+
 
 @media (min-width: 375px) {
-  .container-fluid {
-    padding-bottom: 6.4rem !important;
+  .card-body {
+    max-width: 360px;
+    min-width: 350px;
+    margin-bottom: 120px !important;
   }
-  .jumbotron {
-    max-width: 345px;
-    margin-top: 40px !important;
-    margin-bottom: 0px !important;
-    padding-top: 1.4rem !important;
-    padding-bottom: 0.8rem !important;
+  .jumbotron-fluid {
+    padding-top: 30px !important;
+    margin-bottom: 20px !important;
   }
+
+  }
+
+
+  @media (min-width: 410px) {
+    .head-icon {
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
+    }
+    .card-body {
+      margin-top: 0px !important;
+      padding-top: 10px !important;
+      margin-bottom: 50px !important;
+    }
+    .jumbotron-fluid {
+      padding-top: 20px !important;
+      margin-bottom: 28px !important;
+    }
+      }
+
+
+      @media (min-width: 440px) {
+        .head-icon {
+          margin-top: 0px !important;
+          margin-bottom: 7px !important;
+        }
+        .card-body {
+          margin-top: 0px !important;
+          padding-top: 1px !important;
+          padding-bottom: 10px !important;
+          margin-bottom: 70px !important;
+        }
+        .container-fluid {
+          padding-bottom: 0px !important;
+        }
+        .jumbotron-fluid {
+          margin-bottom: 10px !important;
+        }
+      }
+
+
+      @media (min-width: 568px) {
+        .jumbotron-fluid {
+          margin-top: 0px !important;
+          padding-top: 1px !important;
+        }
+        .card-body {
+          margin-bottom: 20px !important;
+        }
 }
 
-@media (min-width: 410px) {
-  .container-fluid {
-    padding-bottom: 5.4rem !important;
-  }
-  .jumbotron {
-    height: 100%;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-
-@media (min-width: 440px) {
-  .container-fluid {
-    padding-bottom: 1.6rem !important;
-  }
-  .jumbotron {
-    height: 100%;
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-    padding-top: .6rem !important;
-  }
-}
-
-@media (min-width: 568px) {
-  .container-fluid {
-    height: auto !important;
-    margin-bottom: 0px !important;
-    padding-bottom: 2.0rem !important;
-  }
-  .jumbotron {
-    height: 90% !important;
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-    padding-top: .6rem !important;
-    padding-bottom: 0rem !important;
-  }
-}
-
-@media (min-width: 640px) {
-}
 
 @media (min-width: 768px) {
-  .container-fluid {
-    padding-bottom: 20rem !important;
-  }
-  .jumbotron {
-    margin-top: 90px !important;
-    margin-bottom: 0px !important;
-    padding-top: 1.4rem !important;
-    padding-bottom: 0.8rem !important;
-  }
-}
-
-@media (min-width: 812px) {
-  .container-fluid {
-    padding-bottom: 4rem !important;
-  }
-  .jumbotron {
-    margin-top: 20px !important;
-    margin-bottom: 0px !important;
-    padding-top: 1.4rem !important;
-    padding-bottom: 0.8rem !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container-fluid {
-    padding-bottom: 34rem !important;
-  }
-  h5 {
-    font-size: 22px !important;
-  }
-  .jumbotron {
-    margin-top: 240px !important;
-    margin-bottom: 0px !important;
-    padding-top: 1.4rem !important;
-    padding-bottom: 0.8rem !important;
-  }
-}
-
-@media (min-width: 1100px) {
-}
-
-@media (min-width: 1280px) {
-  h5 {
-    font-size: 24px !important;
-  }
-  .container-fluid {
-    padding-bottom: 12rem !important;
-  }
-  .jumbotron {
+  .head-icon {
     margin-top: 80px !important;
+    margin-bottom: 20px !important;
+  }
+  .card-body {
+    margin-top: 0px !important;
+    padding-top: 15px !important;
+    margin-bottom: 280px !important;
+  }
+  .jumbotron-fluid {
+    margin-bottom: 68px !important;
+  }
+    }
+
+
+    @media (min-width: 812px) {
+  .head-icon {
+    margin-top: 0px !important;
+    margin-bottom: 7px !important;
+  }
+  .card-body {
+    margin-bottom: 20px !important;
+  }
+  .container-fluid {
+    padding-bottom: 0px !important;
+  }
+  .jumbotron-fluid {
     margin-bottom: 0px !important;
-    padding-top: 1.4rem !important;
-    padding-bottom: 0.8rem !important;
   }
 }
 
-@media (min-width: 1320px) {
+
+@media (min-width: 820px) {
 }
+
+
+@media (min-width: 1020px) {
+  .head-icon {
+    margin-top: 140px !important;
+    margin-bottom: 30px !important;
+  }
+  .card-body {
+    margin-top: 0px !important;
+    padding-top: 20px !important;
+    margin-bottom: 330px !important;
+  }
+  .jumbotron-fluid {
+    margin-bottom: 40px !important;
+  }
+    }
+
+
+    @media (min-width: 1100px) {
+  h3 {
+    font-size: 28px;
+  }
+  .head-icon {
+    margin-top: 30px !important;
+    margin-bottom: 20px !important;
+  }
+  .card-body {
+    margin-top: 0px !important;
+    padding-top: 15px !important;
+    margin-bottom: 50px !important;
+  }
+  .jumbotron-fluid {
+    margin-bottom: 40px !important;
+  }
+}
+
+
+@media (min-width: 1260px) {
+  .head-icon {
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+  }
+  .card-body {
+    margin-top: 0px !important;
+    padding-top: 15px !important;
+    margin-bottom: 50px !important;
+  }
+  .jumbotron-fluid {
+    margin-bottom: 10px !important;
+  }
+}
+

@@ -11,11 +11,6 @@ import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { SmartAgentDashboardModule } from './smart-agent-dashboard/smart-agent-dashboard.module';
 import { SmartSaverDashboardModule } from './smart-saver-dashboard/smart-saver-dashboard.module';
 import { AuthenticationModule } from './auth/authentication.module';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterSmartSaverComponent } from './auth/register-smart-saver/register-smart-saver.component';
-import { RegisterSmartAgentComponent } from './auth/register-smart-agent/register-smart-agent.component';
-import { RegisterBoxForGodComponent } from './auth/register-box-for-god/register-box-for-god.component';
-import { RegisterSchoolFeesBoxComponent } from './auth/register-school-fees-box/register-school-fees-box.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AlertModule } from 'ngx-alerts';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -25,12 +20,7 @@ import { RequestInterceptorServiceService } from './shared/services/request-inte
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterSmartSaverComponent,
-    RegisterSmartAgentComponent,
-    RegisterBoxForGodComponent,
-    RegisterSchoolFeesBoxComponent,
+    AppComponent
 
 
   ],
