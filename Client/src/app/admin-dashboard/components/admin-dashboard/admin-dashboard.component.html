@@ -1,41 +1,4 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex flex-row hidden-sm-down mx-2">
-
-  <button class="navbar-toggler" type="button"  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" [attr.aria-expanded]="isCollapsed" aria-label="Toggle navigation" (click)="toggleArial()">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div [ngClass]="toggleClass" id="navbarSupportedContent">
-
-
-    <ul class="navbar-nav mr-3 my-2 my-lg-0">
-      <li>
-        <button class="btn btn-danger mx-2" type="button"   routerLink='/dashboardadmin/approvetokenpurchases' (click)="toggleArial()">
-            <i class="fas fa-shopping-cart"></i>
-      APPROVE TOKEN PURCHASES
-        </button></li>
-      <li>
-        <button class="btn btn-info mx-2" type="button"   routerLink='/dashboardadmin/approvetokenwithdraws' (click)="toggleArial()">
-            <i class="fa fa-hourglass-half"></i>
-      APPROVE TOKEN WITHDRAWS
-        </button></li>
-
-
-</ul>
-
-
-<ul class="navbar-nav mr-2 my-2 my-lg-0">
- 
-    <button class="btn btn-warning mx-2" type="button"  routerLink='/dashboarduser/enroll' (click)="toggleArial()">
-        <i class="fas fa-cog" ></i>
-        OTHER SETTINGS
-      </button>
-
-
-</ul>
-
-  </div>
-</nav>
 <router-outlet></router-outlet>
 
 

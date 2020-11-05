@@ -8,152 +8,165 @@ import { Router } from '@angular/router';
 import { AlertService } from 'ngx-alerts';
 
 @Component({
-  selector: 'app-approve-token-purchases',
-  templateUrl: './approve-token-purchases.component.html',
-  styleUrls: ['./approve-token-purchases.component.scss']
+  selector: "app-approve-token-purchases",
+  templateUrl: "./approve-token-purchases.component.html",
+  styleUrls: ["./approve-token-purchases.component.scss"],
 })
 export class ApproveTokenPurchasesComponent implements OnInit {
+  userForm: FormGroup;
+  actionButton: string;
+  // clientDetails: AdminApprovalDetails[];
+  errored: boolean;
+  serviceErrors: string;
+  status: boolean;
+  balance = 1000000;
+  station: string;
+  theCompany: string;
+  closingBal: string;
+  clientDetails = [
+    {
+      id: 23444,
+      lId: "ED30620",
+      trn_date: "11/2/2020",
+      trn_time: "12:06 P.M",
+      name: "Obonyo Peterson",
+      phone: "0776367375",
+      tokens_purchased: 150,
+      expected_amount: 150000,
+    },
+    {
+      id: 21644,
+      lId: "ED30330",
+      trn_date: "11/2/2020",
+      trn_time: "12:13 P.M",
+      name: "Ssenabulya Gerald",
+      phone: "0773392385",
+      tokens_purchased: 200,
+      expected_amount: 200000,
+    },
+  ];
+  constructor(
+    private authService: AuthServiceService,
+    private adminUserService: AdminDashboardService,
+    private spinner: NgxSpinnerService,
+    private router: Router,
+    private alertService: AlertService
+  ) {}
 
+  ngOnInit() {
+    // this.station = jwt_decode(this.authService.getJwtToken()).user_station_name;
+    // this.theCompany = jwt_decode(
+    //   this.authService.getJwtToken()
+    // ).user_station_company;
+    this.userForm = this.createFormGroup();
+    // this.tokensApprovalDetails();
+    // this.checkloans();
 
-        userForm: FormGroup;
-        actionButton: string;
-        clientDetails: AdminApprovalDetails[];
-        errored: boolean;
-        serviceErrors: string;
-        status: boolean;
-        balance = 1000000;
-        station: string;
-        theCompany: string;
-        closingBal: string;
+    this.tokensApprovalPurchaseDetails();
+    this.populateAllBalanceTokens();
+  }
 
-        constructor(
-          private authService: AuthServiceService,
-          private adminUserService: AdminDashboardService,
-          private spinner: NgxSpinnerService,
-          private router: Router,
-          private alertService: AlertService
-        ) {}
+  createFormGroup() {
+    return new FormGroup({
+      selection_options: new FormControl(""),
+      user_station: new FormControl(""),
+    });
+  }
 
-        ngOnInit() {
-          // this.station = jwt_decode(this.authService.getJwtToken()).user_station_name;
-          // this.theCompany = jwt_decode(
-          //   this.authService.getJwtToken()
-          // ).user_station_company;
-          this.userForm = this.createFormGroup();
-          // this.tokensApprovalDetails();
-      // this.checkloans();
+  get fval() {
+    return this.userForm.controls;
+  }
 
-          this. tokensApprovalPurchaseDetails();
-          this. populateAllBalanceTokens();
-        }
+  RejectTokenApproval(customerId: string) {
+    this.adminUserService.rejectTokenAdminS(customerId).subscribe(
+      (data) => {
+        this.status = data;
 
-        createFormGroup() {
-          return new FormGroup({
-            selection_options: new FormControl(''),
-            user_station: new FormControl('')
-          });
-        }
+        this.alertService.success({
+          html:
+            "<b>" +
+            this.clientDetails.find((thetoken) => thetoken.lId === customerId)
+              .name +
+            "'s token requested was successfully rejected" +
+            "</b>" +
+            "<br/>",
+        });
+      },
 
-        get fval() {
-          return this.userForm.controls;
-        }
+      (error: string) => {
+        this.errored = true;
+        this.serviceErrors = error;
+        this.alertService.danger({
+          html: "<b>" + this.serviceErrors + "</b>" + "<br/>",
+        });
+      }
+    );
 
-        RejectTokenApproval(customerId: string) {
+    setTimeout(() => {
+      location.reload();
+    }, 3000);
+  }
 
-          this.adminUserService.rejectTokenAdminS(customerId).subscribe(
-            data => {
+  approveTokens(customerId: string) {
+    this.adminUserService.approveTokensAdminPurchase(customerId).subscribe(
+      (data) => {
+        this.status = data;
 
-              this.status = data;
+        this.alertService.success({
+          html:
+            "<b>" +
+            this.clientDetails.find((thetoken) => thetoken.lId === customerId)
+              .name +
+            "'s token requested was successfully approved" +
+            "</b>" +
+            "<br/>",
+        });
 
-              this.alertService.success({
-                html: '<b>' + this.clientDetails.find(
-                thetoken => thetoken.lId === customerId
-              ).name + '\'s token requested was successfully rejected' + '</b>' + '<br/>' } );
-            },
+        setTimeout(() => {
+          location.reload();
+        }, 5000);
+      },
 
-            (error: string) => {
-              this.errored = true;
-              this.serviceErrors = error;
-              this.alertService.danger({
-                html: '<b>' + this.serviceErrors + '</b>' + '<br/>'
-              });
-            }
-          );
+      (error: string) => {
+        this.errored = true;
+        this.serviceErrors = error;
+        this.alertService.danger({
+          html: "<b>" + this.serviceErrors + "</b>" + "<br/>",
+        });
+      }
+    );
+  }
 
-          setTimeout(() => {
+  tokensApprovalPurchaseDetails() {
+    this.adminUserService.getAllDetailsOfTokenPurchaseApprovals().subscribe(
+      (data) => {
+        this.clientDetails = data;
+        // this.alertService.success({ html: '<b> User Roles Updated</b>' + '<br/>' });
+      },
 
-            location.reload();
+      (error: string) => {
+        this.errored = true;
+        this.serviceErrors = error;
+        this.alertService.danger({
+          html: "<b>" + this.serviceErrors + "</b>" + "<br/>",
+        });
+      }
+    );
+  }
 
-          }, 3000);
-        }
+  populateAllBalanceTokens() {
+    this.adminUserService.getAllBalanceRunningTokens().subscribe(
+      (databc) => {
+        this.balance = databc[0].balance;
+      },
 
-        approveTokens(customerId: string) {
-
-          this.adminUserService.approveTokensAdminPurchase(customerId).subscribe(
-            data => {
-
-              this.status = data;
-
-              this.alertService.success({
-                html: '<b>' + this.clientDetails.find(
-                thetoken => thetoken.lId === customerId
-              ).name + '\'s token requested was successfully approved' + '</b>' + '<br/>' } );
-
-              setTimeout(() => {
-
-                location.reload();
-
-              }, 5000);
-            },
-
-            (error: string) => {
-              this.errored = true;
-              this.serviceErrors = error;
-              this.alertService.danger({
-                html: '<b>' + this.serviceErrors + '</b>' + '<br/>'
-              });
-            }
-          );
-
-        }
-
-
-        tokensApprovalPurchaseDetails() {
-
-          this.adminUserService.getAllDetailsOfTokenPurchaseApprovals().subscribe(
-            data => {
-              this.clientDetails = data;
-              // this.alertService.success({ html: '<b> User Roles Updated</b>' + '<br/>' });
-            },
-
-            (error: string) => {
-              this.errored = true;
-              this.serviceErrors = error;
-              this.alertService.danger({
-                html: '<b>' + this.serviceErrors + '</b>' + '<br/>'
-              });
-            }
-          );
-        }
-
-        populateAllBalanceTokens() {
-          this.adminUserService.getAllBalanceRunningTokens(
-
-          ).subscribe(
-            (databc) => {
-              this.balance = databc[0].balance;
-            },
-
-            (error: string) => {
-              this.errored = true;
-              this.serviceErrors = error;
-              this.alertService.danger({
-                html: '<b>' + this.serviceErrors + '</b>' + '<br/>'
-              });
-            }
-          );
-        }
-
-
-
+      (error: string) => {
+        this.errored = true;
+        this.serviceErrors = error;
+        this.alertService.danger({
+          html: "<b>" + this.serviceErrors + "</b>" + "<br/>",
+        });
+      }
+    );
+  }
 }

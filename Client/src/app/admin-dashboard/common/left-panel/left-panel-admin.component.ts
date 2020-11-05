@@ -50,56 +50,44 @@ export class LeftPaneladminComponent implements OnInit {
 
     this.menuList = [
       {
-        name: this.userName,
-        icon: 'far fa-user-circle',
-        url: '/none',
-        image: this.imageurl
+        name: "admin Dashboard",
+        icon: "far fa-clone",
+        url: "/dashboardadmin",
       },
 
       {
-        name: 'admin Dashboard',
-        icon: 'far fa-clone',
-        url: '/dashboardadmin'
-        // badge: '2',
-        // badgeBg: 'bg-success',
+        name: "Post Transactions",
+        icon: "fas fa-exchange-alt",
+        url: "/posttransactions",
+      },
+      {
+        name: "Approve Purchases",
+        icon: "fas fa-coins",
+        url: "/approvetokenpurchases",
+      },
+      {
+        name: "Approve Withdraws",
+        icon: "fas fa-money-bill",
+        url: "/approvetokenwithdraws",
+      },
+      {
+        name: "Reports",
+        icon: "fas fa-chart-line",
+        url: "/reports",
+      },
+      {
+        name: "Profile",
+        icon: "fas fa-user-cog",
+        url: "/updateadminprofile",
       },
 
       {
-        name: 'Post Transactions',
-        icon: 'far fa-calendar-alt text-danger',
-        url: '/posttransactions'
-        // badge: '3',
-        // badgeBg: 'bg-danger',
+        name: "Notifications",
+        icon: "fas fa-envelope",
+        url: "/notifications",
+        badge: "8",
+        badgeBg: "bg-danger",
       },
-      {
-        name: 'Generate Reports',
-        icon: 'far fa-user-circle text-success',
-        url: '/reports'
-        // badge: '3',
-        // badgeBg: 'bg-danger',
-      }
-      ,
-
-      {
-        name: 'Update Profile',
-        icon: 'far fa-user text-danger',
-        url: '/updateadminprofile'
-        // badge: '3',
-        // badgeBg: 'bg-danger',
-      }
-
-      ,
-
-
-      {
-        name: 'Notifications',
-        icon: 'fas fa-envelope text-info',
-        url: '/notifications',
-        badge: '8',
-        badgeBg: 'bg-danger',
-      }
-
-
     ];
   }
 }

@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { LayoutService } from '../../../shared/services/layout.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header-admin.component.html',
-  styleUrls: ['./header-admin.component.scss']
+  selector: "app-header",
+  templateUrl: "./header-admin.component.html",
+  styleUrls: ["./header-admin.component.scss"],
 })
 export class HeaderadminComponent implements OnInit {
   @Input() navLayout: string;
@@ -19,15 +19,14 @@ export class HeaderadminComponent implements OnInit {
   @Input() activeNavColorTheme: string;
   @Input() headerHeight: number;
   @Input() collapsedLeftHeader: boolean;
+  user = "../../../../assets/avatar3.jpg";
+  userName: string;
 
-  constructor( private layoutService: LayoutService) { }
+  constructor(private layoutService: LayoutService) {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   changeTheToggleStatus() {
     this.layoutService.getToggleStatus();
   }
-
 }

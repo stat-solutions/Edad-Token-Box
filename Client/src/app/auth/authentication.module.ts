@@ -3,32 +3,48 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { AuthComponent } from './auth.component';
-import { RegisterSmartVendorComponent } from './register-smart-vendor/register-smart-vendor.component';
-import { RegisterGroupBoxComponent } from './register-group-box/register-group-box.component';
+import { RegisterSmartVendorComponent } from "./register/register-smart-vendor/register-smart-vendor.component";
+import { RegisterSmartAgentComponent } from './register/register-smart-agent/register-smart-agent.component';
+import { RegisterSmartSaverComponent } from "./register/register-smart-saver/register-smart-saver.component";
+import { RegisterGroupBoxComponent } from "./register/register-group-box/register-group-box.component";
+import { RegisterBoxForGodComponent } from "./register/register-box-for-god/register-box-for-god.component";
+import { RegisterSchoolFeesBoxComponent } from "./register/register-school-fees-box/register-school-fees-box.component";
 import { AlertModule } from 'ngx-alerts';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { AdminRegisterComponent } from './admin-register/admin-register.component';
+import { AdminRegisterComponent } from "./register/admin-register/admin-register.component";
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from "./login/login.component";
+import { ChangePasswordComponent } from "./change-password/change-password.component";
 
 
 @NgModule({
-  declarations: [AuthComponent,
-     RegisterSmartVendorComponent,
-     RegisterGroupBoxComponent,
-     AdminRegisterComponent],
+  declarations: [
+    AuthComponent,
+    RegisterSmartVendorComponent,
+    RegisterSmartAgentComponent,
+    RegisterBoxForGodComponent,
+    RegisterGroupBoxComponent,
+    RegisterSchoolFeesBoxComponent,
+    RegisterSmartSaverComponent,
+    AdminRegisterComponent,
+    RegisterComponent,
+    LoginComponent,
+    ChangePasswordComponent
+  ],
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
     ReactiveFormsModule,
-    AlertModule.forRoot({maxMessages: 5, timeout: 10000, position: 'right'}),
+    AlertModule.forRoot({ maxMessages: 5, timeout: 10000, position: "right" }),
     NgxSpinnerModule,
     BsDatepickerModule,
     JwBootstrapSwitchNg2Module,
     BrowserModule,
-    BrowserAnimationsModule
-  ]
+    BrowserAnimationsModule,
+  ],
 })
-export class AuthenticationModule { }
+export class AuthenticationModule {}

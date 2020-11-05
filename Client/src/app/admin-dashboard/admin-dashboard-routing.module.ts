@@ -24,17 +24,14 @@ const routes: Routes = [
 
       {
         path: 'dashboardadmin',
-       component: AdminDashboardComponent,
-       children: [
-        {
+       component: AdminDashboardComponent},
+ {
           path: 'approvetokenpurchases',
          component: ApproveTokenPurchasesComponent,
         },
         {
           path: 'approvetokenwithdraws',
          component: ApproveTokenWithdrawsComponent,
-        },
-       ]
       },
       {
         path: 'posttransactions',
