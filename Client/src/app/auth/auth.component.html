@@ -1,7 +1,7 @@
 <nav
-  class="navbar navbar-expand-lg navbar-dark bg-dark flex-row hidden-sm-down pr-3"
+  class="navbar navbar-expand-lg navbar-dark bg-dark flex-row"
 >
-<div class="navbar-header"><a class="navbar-brand ml-0 mr-5 my-2 my-lg-0 pl-0 pr-0 text-white">
+<div class="navbar-header"><a class="navbar-brand ml-0 mr-4 mx-sm-2 mx-md-3 mr-lg-5 my-2 my-lg-0 px-2 text-white font-weight-bolder">
     <img [src]="imageUrl" height="40" width="40" />&nbsp; EDAD TOKEN XCHANGE</a
   >
 
@@ -18,19 +18,19 @@
   </button>
   </div>
   <div [ngClass]="toggleClass" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-4 ml-xl-5  my-2 my-lg-0">
+    <ul class="navbar-nav mx-0 ml-lg-5 px-3 ml-xl-5 my-2 my-lg-0">
       <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
         <a
-          class="about nav-link" routerLink="boxusage" (click)='toggleArial()'
+          class="about nav-link" routerLink="products" (click)='toggleArial()'
           role="button"
           aria-haspopup="true"
           aria-expanded="false"
         >
           <i
-            class="fas fa-box"
+            class="fas fa-exchange-alt"
             style="font-size:20px;padding: 2px"
           ></i
-          >&nbsp;Box Usage</a
+          >&nbsp;Products</a
         >
       </li>
       <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -64,10 +64,10 @@
         >
 
         <div
-          class="dropdown-content bg-dark text-white-50 pb-2 pt-1"
+          class="dropdown-content bg-dark text-white-75 pb-2 pt-1"
           aria-labelledby="navbarDropdown"
         >
-          <a class="dropdown-item text-white-50" (click)='toggleArial()'
+          <a class="dropdown-item text-white-75 px-2" (click)='toggleArial()'
             ><i
               class="fas fa-envelope"
               style="font-size:20px;padding: 2px"
@@ -75,7 +75,7 @@
             >&nbsp;Email</a
           >
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item text-white-50" (click)='toggleArial()'
+          <a class="dropdown-item text-white-75 px-2" (click)='toggleArial()'
             ><i
               class="fas fa-sms"
               style="font-size:20px;padding: 2px"
@@ -83,7 +83,7 @@
             >&nbsp;Text</a
           >
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item text-white-50" (click)='toggleArial()'
+          <a class="dropdown-item text-white-75 px-2" (click)='toggleArial()'
             ><i
               class="fab fa-facebook-square"
               style="font-size:20px;padding: 2px"
@@ -92,7 +92,7 @@
           >
 
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item text-white-50" (click)='toggleArial()'
+          <a class="dropdown-item text-white-75 px-2" (click)='toggleArial()'
             ><i
               class="fab fa-twitter"
               style="font-size:20px;padding: 2px"
@@ -101,7 +101,7 @@
           >
 
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item text-white-50" (click)='toggleArial()'
+          <a class="dropdown-item text-white-75 px-2" (click)='toggleArial()'
             ><i
               class="fas fa-chalkboard-teacher"
               style="font-size:20px;padding: 2px"

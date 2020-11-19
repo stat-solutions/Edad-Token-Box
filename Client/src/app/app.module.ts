@@ -17,6 +17,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { GroupUserDashboadModule } from './group-user-dashboad/group-user-dashboad.module';
 import { RequestInterceptorServiceService } from './shared/services/request-interceptor-service.service';
+import { SmartSaversModule } from './smart-savers/smart-savers.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { RequestInterceptorServiceService } from './shared/services/request-inte
     SmartSaverDashboardModule,
     AuthenticationModule,
     ReactiveFormsModule,
-    SmartSaverDashboardModule,
+    SmartSaversModule,
     AlertModule,
     NgxSpinnerModule,
     HttpClientModule,

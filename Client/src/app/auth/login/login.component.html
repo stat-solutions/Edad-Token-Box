@@ -5,7 +5,7 @@ class="container-fluid d-flex flex-row justify-content-center mb-0 mt-0 pt-4 pt-
   <div class="head-icon d-flex justify-content-center mt-3 mb-3 mt-lg-1 pb-0">
       <i class="fas fa-sign-in-alt fa-2x text-brown mx-auto"></i>
   </div>
-  <div class="card-body mt-2 pt-2 mb-0 pb-1 shadow-lg">
+  <div class="card-body mt-2 pt-2 mb-4 pb-4 shadow-lg">
     <h3 class="text-brown d-flex justify-content-center mt-2 pt-1 mb-3">
       Login
     </h3>
@@ -135,10 +135,10 @@ class="container-fluid d-flex flex-row justify-content-center mb-0 mt-0 pt-4 pt-
           <ngx-alerts></ngx-alerts>
         </div>
 
-      <div class="form-group text-primary">
+      <div class="form-group">
         <label
           for="password"
-          [ngClass]="fval.password.valid ? 'text-info' : ''"
+          [ngClass]="fval.password.valid ? 'text-success' : ''"
           >PIN<i *ngIf="fval.password.valid" class="material-icons"
             >check_circle</i
           ></label
@@ -169,7 +169,7 @@ class="container-fluid d-flex flex-row justify-content-center mb-0 mt-0 pt-4 pt-
           <div class="input-group-append">
             <span class="input-group-text">
               <i
-                class="fas"
+                class="fas text-brown"
                 [ngClass]="{
                   'fa-eye-slash': !fieldType,
                   'fa-eye': fieldType
@@ -206,7 +206,7 @@ class="container-fluid d-flex flex-row justify-content-center mb-0 mt-0 pt-4 pt-
               size="small"
               type="ball-spin"
             >
-              <h4 class="text-info">Loading...</h4>
+              <h4 class="text-brown">Loading...</h4>
             </ngx-spinner>
             <ngx-alerts></ngx-alerts>
 
@@ -218,7 +218,7 @@ class="container-fluid d-flex flex-row justify-content-center mb-0 mt-0 pt-4 pt-
               </div>
             </div>
             <div class="row">
-              <div class="col" *ngIf="posted" class="text-info">
+              <div class="col" *ngIf="posted" class="text-brown">
                 <i class="material-icons">check_circle</i>
                 <ngx-alerts></ngx-alerts>
               </div>
@@ -234,7 +234,7 @@ class="container-fluid d-flex flex-row justify-content-center mb-0 mt-0 pt-4 pt-
         </div>
         <div class="col-6 d-flex flex-row justify-content-start mt-0 pt-0">
           <div class="form-group">
-            <a class="text-brown mr-0" routerLink="../changepin">
+            <a class="text-brown mr-0" routerLink="../forgotpin">
               Forgot PIN?
             </a>
           </div>

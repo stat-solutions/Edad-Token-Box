@@ -19,6 +19,8 @@ import { AdminRegisterComponent } from "./register/admin-register/admin-register
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from "./login/login.component";
 import { ChangePasswordComponent } from "./change-password/change-password.component";
+import { ForgotPinComponent } from './forgot-pin/forgot-pin.component';
+import { ProductsComponent } from './products/products.component';
 
 
 @NgModule({
@@ -33,13 +35,15 @@ import { ChangePasswordComponent } from "./change-password/change-password.compo
     AdminRegisterComponent,
     RegisterComponent,
     LoginComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ForgotPinComponent,
+    ProductsComponent
   ],
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
     ReactiveFormsModule,
-    AlertModule.forRoot({ maxMessages: 5, timeout: 10000, position: "right" }),
+    AlertModule.forRoot({ maxMessages: 5, timeout: 5000, position: "right" }),
     NgxSpinnerModule,
     BsDatepickerModule,
     JwBootstrapSwitchNg2Module,

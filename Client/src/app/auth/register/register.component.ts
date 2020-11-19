@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(["authpage/register/registeragent"]);
   }
   navigation3() {
-    this.router.navigate(["authpage/register/registervendor"]);
+    this.router.navigate(['authpage/register/registervendor']);
   }
   navigation4() {
     this.router.navigate(["authpage/register/registersaver"]);

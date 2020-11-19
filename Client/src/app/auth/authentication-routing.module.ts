@@ -12,6 +12,8 @@ import { RegisterSchoolFeesBoxComponent } from "./register/register-school-fees-
 import { AdminRegisterComponent } from './register/admin-register/admin-register.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { RegisterComponent } from './register/register.component';
+import { ForgotPinComponent } from './forgot-pin/forgot-pin.component';
+import { ProductsComponent } from './products/products.component';
 
 
 
@@ -21,16 +23,17 @@ const routes: Routes = [
     component: AuthComponent,
     children: [
       { path: "loginpage", component: LoginComponent },
-      { path: "changepin", component: ChangePasswordComponent },
+      { path: "forgotpin", component: ForgotPinComponent },
+      { path: "products", component: ProductsComponent},
       { path: "register", component: RegisterComponent},
 // children: [
-      { path: "registersmartsaver", component: RegisterSmartSaverComponent },
-      { path: "registersmartagent", component: RegisterSmartAgentComponent },
-      { path: "registersmartvendor", component: RegisterSmartVendorComponent },
-      { path: "registerboxforGod", component: RegisterBoxForGodComponent },
+      { path: "registersaver", component: RegisterSmartSaverComponent },
+      { path: "registeragent", component: RegisterSmartAgentComponent },
+      { path: "registervendor", component: RegisterSmartVendorComponent },
+      { path: "registerGodbox", component: RegisterBoxForGodComponent },
       { path: "registergroupbox", component: RegisterGroupBoxComponent },
       {
-        path: "registerschoolfeesbox",
+        path: "registerschfeesbox",
         component: RegisterSchoolFeesBoxComponent,
       },
       { path: "registeradmin", component: AdminRegisterComponent }
