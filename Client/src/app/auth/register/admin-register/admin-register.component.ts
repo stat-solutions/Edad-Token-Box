@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
@@ -24,14 +24,15 @@ export class AdminRegisterComponent implements OnInit {
   value: string;
   values: any;
   numberValue: number;
-fieldType: boolean;
+  fieldType: boolean;
   // uex024n
 
   constructor(
     private authService: AuthServiceService,
     private spinner: NgxSpinnerService,
     private router: Router,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
@@ -40,46 +41,74 @@ fieldType: boolean;
   }
 
   createFormGroup() {
-    return new FormGroup({
-      full_name: new FormControl("", Validators.compose([Validators.required])),
-      main_contact_number: new FormControl(
-        "",
-        Validators.compose([
-          Validators.required,
-          CustomValidator.patternValidator(
-            /^(([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9]))$/,
-            { hasNumber: true }
-          ),
-        ])
-      ),
+    return this.fb.group(
+      {
+        full_name: new FormControl(
+          "",
+          Validators.compose([Validators.required])
+        ),
+        main_contact_number: new FormControl(
+          "",
+          Validators.compose([
+            Validators.required,
+            CustomValidator.patternValidator(
+              /^(([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9]))$/,
+              { hasNumber: true }
+            ),
+          ])
+        ),
 
-      sex: new FormControl("", Validators.compose([Validators.required])),
+        sex: new FormControl("", Validators.compose([Validators.required])),
 
-      password: new FormControl(
-        "",
-        Validators.compose([
-          // 1. Password Field is Required
+        password: new FormControl(
+          "",
+          Validators.compose([
+            // 1. Password Field is Required
 
-          Validators.required,
+            Validators.required,
 
-          // 2. check whether the entered password has a number
-          CustomValidator.patternValidator(/^(([1-9])([1-9])([1-9])([0-9]))$/, {
-            hasNumber: true,
-          }),
-          // 3. check whether the entered password has upper case letter
-          // CustomValidatorInitialCompanySetup.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
-          // 4. check whether the entered password has a lower-case letter
-          // CustomValidatorInitialCompanySetup.patternValidator(/[a-z]/, { hasSmallCase: true }),
-          // 5. check whether the entered password has a special character
-          // CustomValidatorInitialCompanySetup.
-          //   patternValidator(/[!@#$%^&*_+-=;':"|,.<>/?/<mailto:!@#$%^&*_+-=;':"|,.<>/?]/, { hasSpecialCharacters: true }),
+            // 2. check whether the entered password has a number
+            CustomValidator.patternValidator(
+              /^(([1-9])([1-9])([1-9])([0-9]))$/,
+              {
+                hasNumber: true,
+              }
+            ),
+            // 3. check whether the entered password has upper case letter
+            // CustomValidatorInitialCompanySetup.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
+            // 4. check whether the entered password has a lower-case letter
+            // CustomValidatorInitialCompanySetup.patternValidator(/[a-z]/, { hasSmallCase: true }),
+            // 5. check whether the entered password has a special character
+            // CustomValidatorInitialCompanySetup.
+            //   patternValidator(/[!@#$%^&*_+-=;':"|,.<>/?/<mailto:!@#$%^&*_+-=;':"|,.<>/?]/, { hasSpecialCharacters: true }),
 
-          // 6. Has a minimum length of 8 characters
-          Validators.minLength(4),
-          Validators.maxLength(4),
-        ])
-      ),
-    });
+            // 6. Has a minimum length of 8 characters
+            Validators.minLength(4),
+            Validators.maxLength(4),
+          ])
+        ),
+        confirmPassword: new FormControl(
+          "",
+          Validators.compose([
+            // 1. Password Field is Required
+
+            Validators.required,
+
+            // 2. check whether the entered password has a number
+            CustomValidator.patternValidator(
+              /^(([0-9])([0-9])([0-9])([0-9]))$/,
+              {
+                hasNumber: true,
+              }
+            ),
+            // 6. Has a length of exactly 4 digits
+            Validators.minLength(4),
+            Validators.maxLength(4),
+          ])
+        ),
+      },
+      { validator: CustomValidator.passwordMatchValidator }
+    );
   }
 
   revert() {
@@ -141,7 +170,7 @@ fieldType: boolean;
 
           this.alertService.success({
             html:
-              "<b>Admin Registration was Successful!!</b>" +
+              "<b>Admin Registration was Successful</b>" +
               "</br>" +
               "Please contact the system admin for approval and then get access to the admin's dashboard",
           });

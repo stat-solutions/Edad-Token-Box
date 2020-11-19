@@ -15,15 +15,16 @@ button.navbar-toggle:hover, button.navbar-toggle:focus{
   // color:#000;
   // // and so on according to what style u want...
 }
-.jumbotron {
-  padding-bottom: 40px;
-}
 .dropdown {
   position: relative;
   display: inline-block;
   margin-top: 0rem;
 }
 
+.navbar-nav {
+  position: absolute;
+  z-index: 999;
+}
 .dropdown-content {
   display: none;
   position: absolute;
@@ -33,7 +34,10 @@ button.navbar-toggle:hover, button.navbar-toggle:focus{
 }
 
 .dropdown-content a {
-  padding: 3px 4px;
+  padding-left: 8px;
+  padding-right: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   margin-left: 0px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -66,10 +70,6 @@ button.navbar-toggle:hover, button.navbar-toggle:focus{
   background-color: transparent;
 }
 
-h3{
-  font-size: 1.0rem;
-}
-
 .navbar-brand {
     padding-top: .3125rem;
     padding-bottom: .3125rem;
@@ -79,14 +79,6 @@ h3{
     height: 2.9rem;
 }
 
-.text-info {
-  color: #232629 !important
-}
-
-a.text-info:focus,
-a.text-info:hover {
-  color: #14181af5 !important
-}
 
 
 //media queries
@@ -97,10 +89,6 @@ a.text-info:hover {
 }
 
 @media (min-width: 375px) {
-  .navbar-brand {
-    padding-right: 30px !important;
-    margin-right: 30px !important;
-  }
 }
 
 @media (min-width: 410px) {
@@ -115,47 +103,147 @@ a.text-info:hover {
     padding-right: 55px !important;
   }
 }
+@media(min-width: 438px){
+  .navbar-brand {
+    padding-right: 70px !important;
+  }
+}
 
-@media (min-width: 440px) {
+@media(min-width: 455px){
   .navbar-brand {
     padding-right: 90px !important;
   }
 }
 
-@media (min-width: 568px) {
+@media(min-width: 474px){
+  .navbar-brand {
+    padding-right: 110px !important;
+  }
+}
+
+@media(min-width: 495px){
+  .navbar-brand {
+    padding-right: 140px !important;
+  }
+}
+
+@media(min-width: 526px){
+  .navbar-brand {
+    padding-right: 170px !important;
+  }
+}
+
+@media(min-width: 540px){
+  .navbar-brand {
+    padding-right: 180px !important;
+  }
+}
+
+@media (min-width: 575px) {
+  .navbar-brand {
+    padding-right: 190px !important;
+  }
+}
+@media (min-width: 600px) {
+  .navbar-brand {
+    padding-right: 210px !important;
+  }
+}
+
+@media (min-width: 619px) {
+  .navbar-brand {
+    padding-right: 230px !important;
+  }
 }
 
 @media (min-width: 640px) {
   .navbar-brand {
-    padding-right: 165px !important;
+    padding-right: 250px !important;
   }
 }
 
-@media (min-width: 730px) {
+@media(min-width: 662px){
   .navbar-brand {
-    padding-right: 240px !important;
+    padding-right: 280px !important;
   }
 }
 
-@media (min-width: 768px) {
+@media(min-width: 690px){
   .navbar-brand {
-    padding-right: 310px !important;
+    padding-right: 300px !important;
   }
 }
 
-@media (min-width: 812px) {
+@media(min-width: 720px){
   .navbar-brand {
     padding-right: 320px !important;
   }
 }
 
-@media (min-width: 1024px) {
-  .register {
-    display: none;
-  }
+@media (min-width: 740px) {
   .navbar-brand {
-    margin-right: 40px !important;
-    padding-right: 0px !important;
+    padding-right: 350px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-brand {
+    padding-right: 370px !important;
+  }
+}
+
+@media (min-width: 812px) {
+  .navbar-brand {
+    padding-right: 390px !important;
+  }
+}
+
+@media (min-width: 840px) {
+  .navbar-brand {
+    padding-right: 420px !important;
+  }
+}
+
+@media (min-width: 867px) {
+  .navbar-brand {
+    padding-right: 440px !important;
+  }
+}
+
+@media (min-width: 894px) {
+  .navbar-brand {
+    padding-right: 460px !important;
+  }
+}
+
+@media (min-width: 920px) {
+  .navbar-brand {
+    padding-right: 480px !important;
+  }
+}
+
+@media (min-width: 950px) {
+  .navbar-brand {
+    padding-right: 500px !important;
+  }
+}
+
+@media (min-width: 975px) {
+  .navbar-brand {
+    padding-right: 520px !important;
+  }
+}
+
+@media (min-width: 993px) {
+  .navbar-brand {
+    padding-right: 180px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-brand {
+    margin-right: 210px !important;
+    padding-right: 80px !important;
   }
   .nav-link {
     font-size: 11px;
@@ -166,14 +254,65 @@ a.text-info:hover {
   }
 }
 
+@media (min-width: 1045px) {
+  .navbar-brand {
+    padding-right: 110px !important;
+  }
+}
+
+@media (min-width: 1067px) {
+  .navbar-brand {
+    padding-right: 130px !important;
+  }
+}
+
 @media (min-width: 1100px) {
+  .navbar-brand {
+    padding-right: 150px !important;
+  }
+}
+
+@media (min-width: 1127px) {
+  .navbar-brand {
+    padding-right: 170px !important;
+  }
+}
+
+@media (min-width: 1150px) {
+  .navbar-brand {
+    padding-right: 190px !important;
+  }
+}
+
+@media (min-width: 1170px) {
+  .navbar-brand {
+    padding-right: 210px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbar-brand {
+    padding-right: 230px !important;
+  }
+}
+
+@media (min-width: 1228px) {
+  .navbar-brand {
+    padding-right: 250px !important;
+  }
+}
+
+@media (min-width: 1250px) {
+  .navbar-brand {
+    padding-right: 290px !important;
+  }
 }
 
 @media (min-width: 1280px) {
   .navbar-brand {
     margin-left: 10px !important;
     padding-left: 7px !important;
-    margin-right: 140px !important;
+    margin-right: 80px !important;
     padding-right: 200px !important;
   }
   .navbar-nav {
@@ -185,5 +324,14 @@ a.text-info:hover {
   }
 }
 
-@media (min-width: 1320px) {
+@media (min-width: 1340px) {
+  .navbar-brand {
+    padding-right: 240px !important;
+  }
+}
+
+@media (min-width: 1378px) {
+  .navbar-brand {
+    padding-right: 270px !important;
+  }
 }

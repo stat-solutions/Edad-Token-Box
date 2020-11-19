@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { CountryRegions } from 'src/app/shared/models/country-regions';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -36,7 +36,8 @@ export class RegisterSchoolFeesBoxComponent implements OnInit {
     private authService: AuthServiceService,
     private spinner: NgxSpinnerService,
     private router: Router,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
@@ -46,7 +47,7 @@ export class RegisterSchoolFeesBoxComponent implements OnInit {
   }
 
   createFormGroup() {
-    return new FormGroup({
+    return this.fb.group({
       full_name: new FormControl('', Validators.compose([Validators.required])),
 
       country_region: new FormControl(
@@ -107,20 +108,34 @@ export class RegisterSchoolFeesBoxComponent implements OnInit {
           CustomValidator.patternValidator(/^(([1-9])([1-9])([1-9])([0-9]))$/, {
             hasNumber: true
           }),
-          // 3. check whether the entered password has upper case letter
-          // CustomValidatorInitialCompanySetup.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
-          // 4. check whether the entered password has a lower-case letter
-          // CustomValidatorInitialCompanySetup.patternValidator(/[a-z]/, { hasSmallCase: true }),
-          // 5. check whether the entered password has a special character
-          // CustomValidatorInitialCompanySetup.
-          //   patternValidator(/[!@#$%^&*_+-=;':"|,.<>/?/<mailto:!@#$%^&*_+-=;':"|,.<>/?]/, { hasSpecialCharacters: true }),
 
-          // 6. Has a minimum length of 8 characters
+          // 6. Has a length of exactly 4 characters
           Validators.minLength(4),
           Validators.maxLength(4)
         ])
-      )
-    });
+      ),
+        confirmPassword: new FormControl(
+          "",
+          Validators.compose([
+            // 1. Password Field is Required
+
+            Validators.required,
+
+            // 2. check whether the entered password has a number
+            CustomValidator.patternValidator(
+              /^(([0-9])([0-9])([0-9])([0-9]))$/,
+              {
+                hasNumber: true,
+              }
+            ),
+            // 6. Has a length of exactly 4 digits
+            Validators.minLength(4),
+            Validators.maxLength(4),
+          ])
+        ),
+      },
+      { validator: CustomValidator.passwordMatchValidator }
+    );
   }
 
   createCountryRegions() {

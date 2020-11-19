@@ -488,7 +488,7 @@ h6 {
 
 .h1,
 h1 {
-    font-size: 2.0rem
+    font-size: 2rem
 }
 
 .h2,
@@ -498,22 +498,22 @@ h2 {
 
 .h3,
 h3 {
-    font-size: 1.5rem
+    font-size: 1.35rem
 }
 
 .h4,
 h4 {
-    font-size: 1.3rem
+    font-size: 1.2rem
 }
 
 .h5,
 h5 {
-    font-size: 1.15rem
+    font-size: 1.0rem
 }
 
 .h6,
 h6 {
-    font-size: .9rem
+    font-size: .8rem
 }
 
 .lead {
@@ -1900,10 +1900,10 @@ pre code {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
+    color: #34393d;
+    background-color: transparent;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
@@ -1920,37 +1920,38 @@ pre code {
 }
 
 .form-control:focus {
-    color: #495057;
+    color: #34393d;
     background-color: #fff;
-    border-color: #fbc2b3;
+    border-color: #ac6802;
     outline: 0;
-    box-shadow: 0 0 0 .2rem rgba(244, 98, 58, .25)
+    box-shadow: 0 0 0 .2rem rgb(172, 104, 2, .5)
 }
 
 .form-control::-webkit-input-placeholder {
-    color: #6c757d;
+    color: #a4a5a7;
     opacity: 1
 }
 
 .form-control::-moz-placeholder {
-    color: #6c757d;
+    color: #a4a5a7;
     opacity: 1
 }
 
 .form-control:-ms-input-placeholder {
-    color: #6c757d;
+    color: #a4a5a7;
     opacity: 1
 }
 
 .form-control::-ms-input-placeholder {
-    color: #6c757d;
+    color: #a4a5a7;
     opacity: 1
 }
 
 .form-control::placeholder {
-    color: #6c757d;
+    color: #a4a5a7;
     opacity: 1
 }
+
 
 .form-control:disabled,
 .form-control[readonly] {
@@ -1959,7 +1960,7 @@ pre code {
 }
 
 select.form-control:focus::-ms-value {
-    color: #495057;
+    color: #34393d;
     background-color: #fff
 }
 
@@ -2036,7 +2037,7 @@ textarea.form-control {
 }
 
 .form-group {
-    margin-bottom: 1rem
+    margin-bottom: .8rem
 }
 
 .form-text {
@@ -2434,6 +2435,10 @@ textarea.form-control.is-invalid {
     }
 }
 
+.pointerCursor {
+  cursor: pointer;
+}
+
 .btn {
     display: inline-block;
     font-weight: 400;
@@ -2449,7 +2454,7 @@ textarea.form-control.is-invalid {
     padding: .375rem .65rem;
     font-size: 1rem;
     line-height: 1.0;
-    border-radius: .25rem;
+    border-radius: .9rem;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
@@ -2595,40 +2600,39 @@ background-image: linear-gradient(110deg, rgba(9, 62, 119, 0.97), rgba(35, 85, 1
 }
 
 .btn-info {
-  color: #bbb212;
-  background-color: #114b88;
-  border-color: #114b88;
+  color: rgb(172, 104, 2);
+  background-color: transparent;
+  border-color: rgb(172, 104, 2);
 }
-.btn-info:hover,
-.btn-info:focus {
-  color: #bbb212;
-  background-color: rgb(9, 62, 119);
-background-image: linear-gradient(110deg, rgba(9, 62, 119, 0.97), rgba(35, 85, 119, 0.719));
-  border-color: rgb(9, 62, 119);
+
+.btn-info:hover, .btn-info:focus {
+  color: #d9dbdd;
+  background-color: rgb(172, 104, 2);
+  border-color: rgb(172, 104, 2);
 }
 .btn-info.focus,
 .btn-info:focus {
-  box-shadow: 0 0 0 0.2rem #1a66b8;
+  box-shadow: 0 0 0 .2rem rgb(172, 104, 2, .5);
 }
 .btn-info.disabled,
 .btn-info:disabled {
-  color: #999324;
-  background-color: #21659c;
-  border-color: #21659c;
+  color: rgb(156, 105, 28);
+  background-color: transparent;
+  border-color: rgb(156, 105, 28);
 }
 
 .btn-info:not(:disabled):not(.disabled).active,
 .btn-info:not(:disabled):not(.disabled):active,
 .show>.btn-info.dropdown-toggle {
-    color: #fff;
-    background-color: #117a8b;
-    border-color: #10707f
+  color: #d9dbdd;
+  background-color: rgb(172, 104, 2);
+  border-color: rgb(172, 104, 2);
 }
 
 .btn-info:not(:disabled):not(.disabled).active:focus,
 .btn-info:not(:disabled):not(.disabled):active:focus,
 .show>.btn-info.dropdown-toggle:focus {
-    box-shadow: 0 0 0 .2rem rgba(58, 176, 195, .5)
+    box-shadow: 0 0 0 .2rem rgb(172, 104, 2, .5)
 }
 
 .btn-warning {
@@ -3648,12 +3652,17 @@ input[type=submit].btn-block {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
+    color: #34393d;
     text-align: center;
     white-space: nowrap;
-    background-color: #e9ecef;
-    border: 1px solid #ced4da;
+    background-color: transparent;
+    border-bottom: 1px solid #ced4da;
     border-radius: .25rem
+}
+
+.input-group-text:focus {
+    color: #34393d;
+    border-bottom: 1px solid #ced4da;
 }
 
 .input-group-text input[type=checkbox],
@@ -4266,7 +4275,7 @@ input[type=submit].btn-block {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: .5rem 1rem
+    padding: .5rem 1rem;
 }
 
 .navbar>.container,
@@ -4302,7 +4311,9 @@ input[type=submit].btn-block {
     padding-left: 0;
     padding-right: 0;
     margin-bottom: 0;
-    list-style: none
+    list-style: none;
+background-color: #232629;
+
 }
 
 .navbar-nav .nav-link {
@@ -4344,7 +4355,8 @@ input[type=submit].btn-block {
     color: #51a416e0 !important;
     border: 0px;
     border-radius: 0rem;
-    text-decoration: none
+    text-decoration: none;
+    outline: 0;
 }
 
 .navbar-toggler-icon {
@@ -4625,7 +4637,8 @@ input[type=submit].btn-block {
 
 .navbar-dark .navbar-toggler {
     color: rgba(255, 255, 255, 1.0);
-    border-color: rgba(255, 255, 255, 1.0)
+    border-color: none;
+    outline: 0;
 }
 
 .navbar-dark .navbar-toggler-icon {
@@ -6627,14 +6640,16 @@ button.bg-success:hover {
 }
 
 .bg-info {
-    background-color: #114b88 !important
+    background-color: #ac6802 !important
 }
 
 a.bg-info:focus,
-a.bg-info:hover,
+a.bg-info:hover{
+    color: #232629 !important
+}
 button.bg-info:focus,
 button.bg-info:hover {
-    background-color: #18b2ca !important
+    background-color: #232629 !important
 }
 
 .bg-warning {
@@ -6686,7 +6701,7 @@ button.bg-dark:hover {
 }
 
 .bg-whiteb {
-    background-color: rgb(224, 223, 223) !important
+    background-color: #f5f4f4 !important
 }
 
 .bg-transparent {
@@ -9774,21 +9789,21 @@ button.bg-dark:hover {
 }
 
 .text-primary {
-    color: #00162dbb !important
+    color: #181c20 !important
 }
 
 a.text-primary:focus,
 a.text-primary:hover {
-    color: #000f1dbb !important
+    color: #14181b !important
 }
 
 .text-secondary {
-    color: #6c757d !important
+    color: #d3d1d3 !important
 }
 
 a.text-secondary:focus,
 a.text-secondary:hover {
-    color: #494f54 !important
+    color: #232629 !important
 }
 
 .text-success {
@@ -9809,13 +9824,30 @@ a.text-primo:hover {
     color: #35b0e9ee !important
 }
 
+.text-brown {
+  color: #ac6802 !important
+}
+
+a.text-brown:focus,
+a.text-brown:hover {
+  color: rgb(196, 119, 5) !important
+}
+
+
+.text-brown-1 {
+  color: #e2e0e2 !important
+}
+.text-brown-1:hover, .text-brown-1:focus {
+  color: #232629 !important
+}
+
 .text-info {
-    color: #17aae0ee !important
+  color: #232629 !important
 }
 
 a.text-info:focus,
 a.text-info:hover {
-    color: #48bae4f5 !important
+  color: #14181af5 !important
 }
 
 .text-warning {

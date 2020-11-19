@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
@@ -8,9 +8,9 @@ import { CustomValidator } from 'src/app/validators/custom-validator';
 import { CountryRegions } from 'src/app/shared/models/country-regions';
 
 @Component({
-  selector: 'app-register-smart-saver',
-  templateUrl: './register-smart-saver.component.html',
-  styleUrls: ['./register-smart-saver.component.scss']
+  selector: "app-register-smart-saver",
+  templateUrl: "./register-smart-saver.component.html",
+  styleUrls: ["./register-smart-saver.component.scss"],
 })
 export class RegisterSmartSaverComponent implements OnInit {
   registered = false;
@@ -34,7 +34,8 @@ export class RegisterSmartSaverComponent implements OnInit {
     private authService: AuthServiceService,
     private spinner: NgxSpinnerService,
     private router: Router,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
@@ -43,104 +44,128 @@ export class RegisterSmartSaverComponent implements OnInit {
     this.createCountryRegions();
   }
 
-
-
   createFormGroup() {
-    return new FormGroup({
+    return this.fb.group(
+      {
+        full_name: new FormControl(
+          "",
+          Validators.compose([Validators.required])
+        ),
 
-      full_name: new FormControl('', Validators.compose([Validators.required])),
+        country_region: new FormControl(
+          "",
+          Validators.compose([Validators.required])
+        ),
 
-      country_region: new FormControl(
-        '',
-        Validators.compose([Validators.required])
-      ),
+        country_region_id: new FormControl(""),
 
-      country_region_id: new FormControl(''),
+        national_id: new FormControl(
+          "",
+          Validators.compose([
+            Validators.required,
+            Validators.minLength(14),
+            Validators.maxLength(14),
+          ])
+        ),
 
-      national_id: new FormControl(
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.minLength(14),
-          Validators.maxLength(14)
+        main_contact_number: new FormControl(
+          "",
+          Validators.compose([
+            Validators.required,
+            CustomValidator.patternValidator(
+              /^(([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9]))$/,
+              { hasNumber: true }
+            ),
+          ])
+        ),
 
-        ])
-      ),
+        sex: new FormControl("", Validators.compose([Validators.required])),
 
-      main_contact_number: new FormControl(
-        '',
-        Validators.compose([
-          Validators.required,
-          CustomValidator.patternValidator(
-            /^(([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9]))$/,
-            { hasNumber: true }
-          )
-        ])
-      ),
+        // date_of_birth: new FormControl(
+        //   '',
+        //   Validators.compose([Validators.required])
+        // ),
 
-      sex: new FormControl('', Validators.compose([Validators.required])),
+        // user_image: new FormControl('', Validators.compose([Validators.required])),
 
-      // date_of_birth: new FormControl(
-      //   '',
-      //   Validators.compose([Validators.required])
-      // ),
+        agents_contact_number: new FormControl(
+          { value: "", disabled: true },
+          Validators.compose([
+            Validators.required,
+            CustomValidator.patternValidator(
+              /^(([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9]))$/,
+              { hasNumber: true }
+            ),
+          ])
+        ),
 
-      // user_image: new FormControl('', Validators.compose([Validators.required])),
+        // edad_number_of_tokens: new FormControl(
+        //   '',
+        //   Validators.compose([
+        //     Validators.required,
+        //     CustomValidator.patternValidator(/\d/, { hasNumber: true }),
+        //     Validators.maxLength(9)
+        //   ])
+        // ),
 
-      agents_contact_number: new FormControl(
-        { value: '', disabled: true },
-        Validators.compose([
-          Validators.required,
-          CustomValidator.patternValidator(
-            /^(([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9]))$/,
-            { hasNumber: true }
-          )
-        ])
-      ),
+        password: new FormControl(
+          "",
+          Validators.compose([
+            // 1. Password Field is Required
 
-      // edad_number_of_tokens: new FormControl(
-      //   '',
-      //   Validators.compose([
-      //     Validators.required,
-      //     CustomValidator.patternValidator(/\d/, { hasNumber: true }),
-      //     Validators.maxLength(9)
-      //   ])
-      // ),
+            Validators.required,
 
-      password: new FormControl(
-        '',
-        Validators.compose([
-          // 1. Password Field is Required
+            // 2. check whether the entered password has a number
+            CustomValidator.patternValidator(
+              /^(([1-9])([1-9])([1-9])([0-9]))$/,
+              {
+                hasNumber: true,
+              }
+            ),
+            // 3. check whether the entered password has upper case letter
+            // CustomValidatorInitialCompanySetup.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
+            // 4. check whether the entered password has a lower-case letter
+            // CustomValidatorInitialCompanySetup.patternValidator(/[a-z]/, { hasSmallCase: true }),
+            // 5. check whether the entered password has a special character
+            // CustomValidatorInitialCompanySetup.
+            //   patternValidator(/[!@#$%^&*_+-=;':"|,.<>/?/<mailto:!@#$%^&*_+-=;':"|,.<>/?]/, { hasSpecialCharacters: true }),
 
-          Validators.required,
+            // 6. Has a minimum length of 8 characters
+            Validators.minLength(4),
+            Validators.maxLength(4),
+          ])
+        ),
+        confirmPassword: new FormControl(
+          "",
+          Validators.compose([
+            // 1. Password Field is Required
 
-          // 2. check whether the entered password has a number
-          CustomValidator.patternValidator(/^(([1-9])([1-9])([1-9])([0-9]))$/, {
-            hasNumber: true
-          }),
-          // 3. check whether the entered password has upper case letter
-          // CustomValidatorInitialCompanySetup.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
-          // 4. check whether the entered password has a lower-case letter
-          // CustomValidatorInitialCompanySetup.patternValidator(/[a-z]/, { hasSmallCase: true }),
-          // 5. check whether the entered password has a special character
-          // CustomValidatorInitialCompanySetup.
-          //   patternValidator(/[!@#$%^&*_+-=;':"|,.<>/?/<mailto:!@#$%^&*_+-=;':"|,.<>/?]/, { hasSpecialCharacters: true }),
+            Validators.required,
 
-          // 6. Has a minimum length of 8 characters
-          Validators.minLength(4),
-          Validators.maxLength(4)
-        ])
-      )
-    });
+            // 2. check whether the entered password has a number
+            CustomValidator.patternValidator(
+              /^(([0-9])([0-9])([0-9])([0-9]))$/,
+              {
+                hasNumber: true,
+              }
+            ),
+            // 6. Has a length of exactly 4 digits
+            Validators.minLength(4),
+            Validators.maxLength(4),
+          ])
+        ),
+      },
+      { validator: CustomValidator.passwordMatchValidator }
+    );
   }
 
   createCountryRegions() {
     this.authService.getCounryRegions().subscribe(
-      data => {
+      (data) => {
         console.log(data[0]);
         this.countryRegions = data;
         this.alertService.success({
-          html: '<b> Country Regions Updated</b>' + '<br/>'
+          html: "<b> Country Regions Updated</b>" + "<br/>",
         });
       },
 
@@ -148,15 +173,15 @@ export class RegisterSmartSaverComponent implements OnInit {
         this.errored = true;
         this.serviceErrors = error;
         this.alertService.danger({
-          html: '<b>' + this.serviceErrors + '</b>' + '<br/>'
+          html: "<b>" + this.serviceErrors + "</b>" + "<br/>",
         });
       }
     );
   }
 
   checkWhtherAgentIsRegistered(agentsNumber: string): any {
-    return new Promise(resolve => {
-      this.authService.isAgentRegistered(agentsNumber).subscribe(status => {
+    return new Promise((resolve) => {
+      this.authService.isAgentRegistered(agentsNumber).subscribe((status) => {
         resolve(status);
       });
     });
@@ -165,7 +190,6 @@ export class RegisterSmartSaverComponent implements OnInit {
   onCheckChange(event: any) {
     console.log(event.target.checked);
     if (event.target.checked) {
-
       this.agentUsed = true;
       this.fval.agents_contact_number.enable();
     } else {
@@ -187,13 +211,14 @@ export class RegisterSmartSaverComponent implements OnInit {
     this.revert();
 
     setTimeout(() => {
-      this.router.navigate(['authpage/loginpage']);
+      this.router.navigate(["authpage/loginpage"]);
     }, 2000);
   }
 
   setCountryRegionId(event: any) {
     this.countryId = this.countryRegions.find(
-      regionDetails => regionDetails.country_region_name === event.target.value
+      (regionDetails) =>
+        regionDetails.country_region_name === event.target.value
     ).country_region_id;
   }
 
@@ -205,13 +230,13 @@ export class RegisterSmartSaverComponent implements OnInit {
       return;
     } else {
       this.userForm.patchValue({
-        country_region_id: this.countryId
+        country_region_id: this.countryId,
       });
 
       if (this.agentUsed) {
         this.checkWhtherAgentIsRegistered(
           this.fval.agents_contact_number.value
-        ).then(results => {
+        ).then((results) => {
           if (results) {
             this.authService.registerSmartSaverAgent(this.userForm).subscribe(
               () => {
@@ -221,13 +246,13 @@ export class RegisterSmartSaverComponent implements OnInit {
 
                 this.alertService.success({
                   html:
-                    '<b>Samrt Saver registration was Successful!!</b>' +
-                    '</br>' +
-                    'Please proceed to purchase a box and then get access to the savers dashboard'
+                    "<b>Smart Saver registration was Successful</b>" +
+                    "</br>" +
+                    "Please proceed to purchase a box and then get access to the savers dashboard",
                 });
 
                 setTimeout(() => {
-                  this.router.navigate(['authpage/loginpage']);
+                  this.router.navigate(["authpage/loginpage"]);
                 }, 3000);
               },
 
@@ -237,7 +262,7 @@ export class RegisterSmartSaverComponent implements OnInit {
                 this.serviceErrors = error;
 
                 this.alertService.danger({
-                  html: '<b>' + this.serviceErrors + '</b>' + '<br/>'
+                  html: "<b>" + this.serviceErrors + "</b>" + "<br/>",
                 });
                 setTimeout(() => {
                   // location.reload();
@@ -251,10 +276,10 @@ export class RegisterSmartSaverComponent implements OnInit {
             this.spinner.hide();
             this.alertService.danger({
               html:
-                '<b>' +
-                'The Agent\'s telephone number is not registered for SMART AGENCY' +
-                '</b>' +
-                '<br/>'
+                "<b>" +
+                "The Agent's telephone number is not registered for SMART AGENCY" +
+                "</b>" +
+                "<br/>",
             });
 
             this.agentsNumber = this.fval.agents_contact_number.value;
@@ -264,9 +289,7 @@ export class RegisterSmartSaverComponent implements OnInit {
         });
 
         //   // this.registered = true;
-      }
-
-      else {
+      } else {
         this.authService.registerSmartSaverNoAgent(this.userForm).subscribe(
           () => {
             this.posted = true;
@@ -275,13 +298,13 @@ export class RegisterSmartSaverComponent implements OnInit {
 
             this.alertService.success({
               html:
-                '<b>User Registration was Successful!!</b>' +
-                '</br>' +
-                'Please proceed to login into your dashboard and purchase tokens!!'
+                "<b>Registration was Successful</b>" +
+                "</br>" +
+                "Please proceed to login into your dashboard and to transact",
             });
 
             setTimeout(() => {
-              this.router.navigate(['authpage/loginpage']);
+              this.router.navigate(["authpage/loginpage"]);
             }, 3000);
           },
 
@@ -291,7 +314,7 @@ export class RegisterSmartSaverComponent implements OnInit {
             this.serviceErrors = error;
 
             this.alertService.danger({
-              html: '<b>' + this.serviceErrors + '</b>' + '<br/>'
+              html: "<b>" + this.serviceErrors + "</b>" + "<br/>",
             });
             setTimeout(() => {
               // location.reload();
