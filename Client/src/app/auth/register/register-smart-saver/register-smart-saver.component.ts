@@ -22,6 +22,7 @@ export class RegisterSmartSaverComponent implements OnInit {
   value: string;
   mySubscription: any;
   myDateValue: Date;
+  fieldType: boolean;
   countryRegions: CountryRegions[];
   agentUsed = false;
   countryId: number;
@@ -198,6 +199,11 @@ export class RegisterSmartSaverComponent implements OnInit {
     }
   }
 
+  // toggle visibility of password field
+  toggleFieldType(): any {
+    this.fieldType = !this.fieldType;
+  }
+
   revert() {
     this.userForm.reset();
   }
@@ -248,7 +254,7 @@ export class RegisterSmartSaverComponent implements OnInit {
                   html:
                     "<b>Smart Saver registration was Successful</b>" +
                     "</br>" +
-                    "Please proceed to purchase a box and then get access to the savers dashboard",
+                    "Please proceed to purchase a box and then get access to the Saver's dashboard",
                 });
 
                 setTimeout(() => {
@@ -300,7 +306,7 @@ export class RegisterSmartSaverComponent implements OnInit {
               html:
                 "<b>Registration was Successful</b>" +
                 "</br>" +
-                "Please proceed to login into your dashboard and to transact",
+                "Please proceed to login into your dashboard to transact",
             });
 
             setTimeout(() => {

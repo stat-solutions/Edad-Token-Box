@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { CountryRegions } from 'src/app/shared/models/country-regions';
-import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { Router } from '@angular/router';
-import { AlertService } from 'ngx-alerts';
-import { CustomValidator } from 'src/app/validators/custom-validator';
+import { Component, OnInit } from "@angular/core";
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder,
+} from "@angular/forms";
+import { CountryRegions } from "src/app/shared/models/country-regions";
+import { AuthServiceService } from "src/app/shared/services/auth-service.service";
+import { NgxSpinnerService } from "ngx-spinner";
+import { Router } from "@angular/router";
+import { AlertService } from "ngx-alerts";
+import { CustomValidator } from "src/app/validators/custom-validator";
 
 @Component({
-  selector: "app-register-smart-agent",
-  templateUrl: "./register-smart-agent.component.html",
-  styleUrls: ["./register-smart-agent.component.scss"],
+  selector: "app-smart-buyer",
+  templateUrl: "./smart-buyer.component.html",
+  styleUrls: ["./smart-buyer.component.scss"],
 })
-export class RegisterSmartAgentComponent implements OnInit {
+export class SmartBuyerComponent implements OnInit {
   registered = false;
   submitted = false;
   errored = false;
@@ -271,9 +276,9 @@ export class RegisterSmartAgentComponent implements OnInit {
 
               this.alertService.success({
                 html:
-                  "<b>Smart Agent Registration was Successful!!</b>" +
+                  "<b>Smart Buyer Registration was Successful</b>" +
                   "</br>" +
-                  "Please proceed to purchase a box and then get access to the agent's dashboard",
+                  "Please proceed to purchase a box and then get access to the smart buyer's dashboard",
               });
 
               setTimeout(() => {
@@ -302,7 +307,7 @@ export class RegisterSmartAgentComponent implements OnInit {
           this.alertService.danger({
             html:
               "<b>" +
-              "The Agent's telephone number is already registered" +
+              "The Agent's telephone number is already registered!" +
               "</b>" +
               "<br/>",
           });

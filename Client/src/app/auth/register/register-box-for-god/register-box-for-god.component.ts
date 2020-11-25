@@ -25,6 +25,7 @@ export class RegisterBoxForGodComponent implements OnInit {
   countryRegions: CountryRegions[];
   agentUsed = false;
   countryId: number;
+  fieldType: boolean;
   agentsNumber: string;
   registedAgent: any;
   values: any;
@@ -179,6 +180,11 @@ export class RegisterBoxForGodComponent implements OnInit {
       this.agentUsed = false;
       this.fval.agents_contact_number.disable();
     }
+  }
+
+  // toggle visibility of password field
+  toggleFieldType(): any {
+    this.fieldType = !this.fieldType;
   }
 
   revert() {

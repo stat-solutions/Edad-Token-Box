@@ -23,188 +23,54 @@
     >
     <div class="card-body bg-whiteb justify-content-center mt-1 mt-sm-0 pt-2 mb-0 pb-4 mx-lg-5 shadow-lg">
     <div class="head-icon d-flex justify-content-center mt-2 mb-0 pb-0">
-      <i class="fas fa-school fa-2x text-brown mx-auto"></i>
+      <i class="fas fa-coins fa-2x text-brown mx-auto"></i>
   </div>
       <h4 class="text-brown d-flex justify-content-center text-uppercase my-2 pt-1">
-        schoolfees box
+        Countdown Buyer
       </h4>
       <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-         <div class="form-group text-primary">
-            <label
-              for="school_name"
-              [ngClass]="fval.school_name.valid ? 'text-success' : ''"
-              ><i *ngIf="fval.school_name.valid" class="material-icons"
-                >check_circle</i
-              >School Name</label
-            >
-            <div class="input-group mb-0">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i
-                    class="fas fa-tag text-primary mx-auto"
-                    style="size: 50px"
-                  ></i>
-                </div>
-              </div>
-              <input
-                id="school_name"
-                formControlName="school_name"
-                type="text"
-                class="form-control"
-                [ngClass]="{
-                  'is-invalid':
-                    (fval.school_name.touched || fval.school_name.dirty) &&
-                    fval.school_name.errors
-                }"
-                placeholder="Enter School Name"
-                autocomplete="off"
-              />
-            </div>
-            <div
-              class="text-danger col"
-              *ngIf="
-                (fval.school_name.touched || fval.school_name.dirty) &&
-                fval.school_name.errors?.required
-              "
-            >
-              The School name is required!
-            </div>
-          </div>
-         <div class="form-group text-primary">
-            <label
-              for="bursar_name"
-              [ngClass]="fval.bursar_name.valid ? 'text-success' : ''"
-              ><i *ngIf="fval.bursar_name.valid" class="material-icons"
-                >check_circle</i
-              >Bursar's Name</label
-            >
-            <div class="input-group mb-0">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i
-                    class="fas fa-user text-primary mx-auto"
-                    style="size: 50px"
-                  ></i>
-                </div>
-              </div>
-              <input
-                id="bursar_name"
-                formControlName="bursar_name"
-                type="text"
-                class="form-control"
-                [ngClass]="{
-                  'is-invalid':
-                    (fval.bursar_name.touched || fval.bursar_name.dirty) &&
-                    fval.bursar_name.errors
-                }"
-                placeholder="Enter Bursar's Name"
-                autocomplete="off"
-              />
-            </div>
-            <div
-              class="text-danger col"
-              *ngIf="
-                (fval.bursar_name.touched || fval.bursar_name.dirty) &&
-                fval.bursar_name.errors?.required
-              "
-            >
-              The Bursar's name is required!
-            </div>
-          </div>
         <div class="form-group text-primary">
           <label
-            for="main_contact_number1"
-            [ngClass]="fval.main_contact_number1.valid ? 'text-success' : ''"
-            ><i *ngIf="fval.main_contact_number1.valid" class="material-icons"
+            for="full_name"
+            [ngClass]="fval.full_name.valid ? 'text-success' : ''"
+            ><i *ngIf="fval.full_name.valid" class="material-icons"
               >check_circle</i
-            >Bursar's Phone No.</label
+            >Full Name</label
           >
           <div class="input-group mb-0">
             <div class="input-group-prepend">
               <div class="input-group-text">
                 <i
-                  class="fas fa-phone text-primary mx-auto"
+                  class="fas fa-user text-primary mx-auto"
                   style="size: 50px"
                 ></i>
               </div>
             </div>
             <input
-              id="main_contact_number1"
-              formControlName="main_contact_number1"
+              id="full_name"
+              formControlName="full_name"
               type="text"
               class="form-control"
               [ngClass]="{
                 'is-invalid':
-                  (fval.main_contact_number1.touched ||
-                    fval.main_contact_number1.dirty) &&
-                  fval.main_contact_number1.errors
+                  (fval.full_name.touched || fval.full_name.dirty) &&
+                  fval.full_name.errors
               }"
-              placeholder="e.g. 07XXXXXXXX"
+              placeholder="Enter Name"
               autocomplete="off"
             />
           </div>
           <div
             class="text-danger col"
             *ngIf="
-              (fval.main_contact_number1.touched ||
-                fval.main_contact_number1.dirty) &&
-              fval.main_contact_number1.errors?.required
+              (fval.full_name.touched || fval.full_name.dirty) &&
+              fval.full_name.errors?.required
             "
           >
-            The bursar's phone number is required!
-          </div>
-          <div
-            class="text-danger col"
-            *ngIf="
-              (fval.main_contact_number1.touched ||
-                fval.main_contact_number1.dirty) &&
-              fval.main_contact_number1.errors?.hasNumber
-            "
-          >
-            The phone number should be equal to 10 "digits"!
+            The full name is required!
           </div>
         </div>
-         <div class="form-group text-primary">
-            <label
-              for="parent_name"
-              [ngClass]="fval.parent_name.valid ? 'text-success' : ''"
-              ><i *ngIf="fval.parent_name.valid" class="material-icons"
-                >check_circle</i
-              >Parent's Name</label
-            >
-            <div class="input-group mb-0">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i
-                    class="fas fa-user text-primary mx-auto"
-                    style="size: 50px"
-                  ></i>
-                </div>
-              </div>
-              <input
-                id="parent_name"
-                formControlName="parent_name"
-                type="text"
-                class="form-control"
-                [ngClass]="{
-                  'is-invalid':
-                    (fval.parent_name.touched || fval.parent_name.dirty) &&
-                    fval.parent_name.errors
-                }"
-                placeholder="Enter Parent's Name"
-                autocomplete="off"
-              />
-            </div>
-            <div
-              class="text-danger col"
-              *ngIf="
-                (fval.parent_name.touched || fval.parent_name.dirty) &&
-                fval.parent_name.errors?.required
-              "
-            >
-              The Parent's name is required!
-            </div>
-          </div>
+
         <div class="form-group text-primary">
           <label
             for="national_id"
@@ -270,11 +136,11 @@
 
         <div class="form-group text-primary">
           <label
-            for="main_contact_number2"
-            [ngClass]="fval.main_contact_number2.valid ? 'text-success' : ''"
-            ><i *ngIf="fval.main_contact_number2.valid" class="material-icons"
+            for="main_contact_number"
+            [ngClass]="fval.main_contact_number.valid ? 'text-success' : ''"
+            ><i *ngIf="fval.main_contact_number.valid" class="material-icons"
               >check_circle</i
-            >Parent's Phone No.</label
+            >Phone Number</label
           >
           <div class="input-group mb-0">
             <div class="input-group-prepend">
@@ -286,15 +152,15 @@
               </div>
             </div>
             <input
-              id="main_contact_number2"
-              formControlName="main_contact_number2"
+              id="main_contact_number"
+              formControlName="main_contact_number"
               type="text"
               class="form-control"
               [ngClass]="{
                 'is-invalid':
-                  (fval.main_contact_number2.touched ||
-                    fval.main_contact_number2.dirty) &&
-                  fval.main_contact_number2.errors
+                  (fval.main_contact_number.touched ||
+                    fval.main_contact_number.dirty) &&
+                  fval.main_contact_number.errors
               }"
               placeholder="e.g. 07XXXXXXXX"
               autocomplete="off"
@@ -303,19 +169,19 @@
           <div
             class="text-danger col"
             *ngIf="
-              (fval.main_contact_number2.touched ||
-                fval.main_contact_number2.dirty) &&
-              fval.main_contact_number2.errors?.required
+              (fval.main_contact_number.touched ||
+                fval.main_contact_number.dirty) &&
+              fval.main_contact_number.errors?.required
             "
           >
-            The parent's phone number is required!
+            The phone number is required!
           </div>
           <div
             class="text-danger col"
             *ngIf="
-              (fval.main_contact_number2.touched ||
-                fval.main_contact_number2.dirty) &&
-              fval.main_contact_number2.errors?.hasNumber
+              (fval.main_contact_number.touched ||
+                fval.main_contact_number.dirty) &&
+              fval.main_contact_number.errors?.hasNumber
             "
           >
             The phone number should be equal to 10 "digits"!

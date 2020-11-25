@@ -25,6 +25,7 @@ export class RegisterGroupBoxComponent implements OnInit {
   countryRegions: CountryRegions[];
   agentUsed = false;
   countryId: number;
+  fieldType: boolean;
   agentsNumber: string;
   registedAgent: any;
   values: any;
@@ -49,9 +50,17 @@ export class RegisterGroupBoxComponent implements OnInit {
   createFormGroup() {
     return this.fb.group(
       {
-        full_name: new FormControl(
+        group_name: new FormControl(
           "",
           Validators.compose([Validators.required])
+        ),
+        national_id: new FormControl(
+          "",
+          Validators.compose([
+            Validators.required,
+            Validators.maxLength(14),
+            Validators.minLength(14),
+          ])
         ),
 
         country_region: new FormControl(
@@ -74,7 +83,15 @@ export class RegisterGroupBoxComponent implements OnInit {
 
         sex: new FormControl("", Validators.compose([Validators.required])),
 
-        date_of_birth: new FormControl(
+        chairman_name: new FormControl(
+          "",
+          Validators.compose([Validators.required])
+        ),
+        treasurer_name: new FormControl(
+          "",
+          Validators.compose([Validators.required])
+        ),
+        secretary_name: new FormControl(
           "",
           Validators.compose([Validators.required])
         ),
@@ -91,16 +108,6 @@ export class RegisterGroupBoxComponent implements OnInit {
         //     )
         //   ])
         // ),
-
-        edad_number_of_tokens: new FormControl(
-          "",
-          Validators.compose([
-            // Validators.required,
-            CustomValidator.patternValidator(/\d/, { hasNumber: true }),
-            Validators.maxLength(9),
-          ])
-        ),
-
         password: new FormControl(
           "",
           Validators.compose([
@@ -179,6 +186,11 @@ export class RegisterGroupBoxComponent implements OnInit {
       this.agentUsed = false;
       this.fval.agents_contact_number.disable();
     }
+  }
+
+  // toggle visibility of password field
+  toggleFieldType(): any {
+    this.fieldType = !this.fieldType;
   }
 
   revert() {
