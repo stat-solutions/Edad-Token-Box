@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { Router } from '@angular/router';
-import { AlertService } from 'ngx-alerts';
-import { CustomValidator } from 'src/app/validators/custom-validator';
-import { CountryRegions } from 'src/app/shared/models/country-regions';
+import { Component, OnInit } from "@angular/core";
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder,
+} from "@angular/forms";
+import { AuthServiceService } from "src/app/shared/services/auth-service.service";
+import { NgxSpinnerService } from "ngx-spinner";
+import { Router } from "@angular/router";
+import { AlertService } from "ngx-alerts";
+import { CustomValidator } from "src/app/validators/custom-validator";
+import { CountryRegions } from "src/app/shared/models/country-regions";
 
 @Component({
-  selector: "app-register-smart-vendor",
-  templateUrl: "./register-smart-vendor.component.html",
-  styleUrls: ["./register-smart-vendor.component.scss"],
+  selector: "app-vendorr-agent",
+  templateUrl: "./vendorr-agent.component.html",
+  styleUrls: ["./vendorr-agent.component.scss"],
 })
-export class RegisterSmartVendorComponent implements OnInit {
+export class VendorrAgentComponent implements OnInit {
   registered = false;
   submitted = false;
   errored = false;
@@ -22,6 +27,7 @@ export class RegisterSmartVendorComponent implements OnInit {
   value: string;
   mySubscription: any;
   myDateValue: Date;
+  fieldType: boolean;
   countryRegions: CountryRegions[];
   agentUsed = false;
   countryId: number;
@@ -195,6 +201,11 @@ export class RegisterSmartVendorComponent implements OnInit {
     }
   }
 
+  // toggle visibility of password field
+  toggleFieldType(): any {
+    this.fieldType = !this.fieldType;
+  }
+
   revert() {
     this.userForm.reset();
   }
@@ -243,9 +254,9 @@ export class RegisterSmartVendorComponent implements OnInit {
 
                 this.alertService.success({
                   html:
-                    "<b>User Registration was Successful!!</b>" +
+                    "<b>User Registration was Successful</b>" +
                     "</br>" +
-                    "Please proceed to purchase a box and then get access to the savers dashboard",
+                    "Please proceed to purchase a box and then get access to the Vendor's dashboard",
                 });
 
                 setTimeout(() => {
@@ -274,7 +285,7 @@ export class RegisterSmartVendorComponent implements OnInit {
             this.alertService.danger({
               html:
                 "<b>" +
-                "The Agent's telephone number is not registered for SMART AGENCY" +
+                "The Agent's telephone number is not registered for SMART AGENCY!" +
                 "</b>" +
                 "<br/>",
             });
@@ -295,9 +306,9 @@ export class RegisterSmartVendorComponent implements OnInit {
 
             this.alertService.success({
               html:
-                "<b>User Registration was Successful!!</b>" +
+                "<b>User Registration was Successful</b>" +
                 "</br>" +
-                "Please proceed to purchase a box and then get access to the savers dashboard",
+                "Please proceed to purchase a box and then get access to the Vendor's dashboard",
             });
 
             setTimeout(() => {
@@ -327,4 +338,3 @@ export class RegisterSmartVendorComponent implements OnInit {
     }
   }
 }
-

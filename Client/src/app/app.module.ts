@@ -22,8 +22,6 @@ import { SmartSaversModule } from './smart-savers/smart-savers.module';
 @NgModule({
   declarations: [
     AppComponent
-
-
   ],
   imports: [
     BrowserModule,
