@@ -1,11 +1,11 @@
 <div
-  class="navbar-expand-lg navbar-dark bg-info flex-row"
+  class="navbar-expand-lg bg-info flex-row px-xl-5"
 >
-<div class="navbar-header"><a class=" ml-0 mr-4 mx-sm-2 mx-md-3 mr-lg-5 my-2 my-lg-0 px-2 text-white font-weight-bolder">
+<div class=""><a class=" ml-0 mr-4 mx-sm-2 mx-md-3 mr-lg-5 my-2 my-lg-0 px-2 text-white font-weight-bolder">
     <img [src]="imageUrl" height="40" width="40" />&nbsp; EDAD TOKEN XCHANGE</a
   >
-<a class="profile-link pull-right" routerLink="settings">
-  <span class="d-none d-lg-inline mr-0 text-gray-600 small">{{
+<a class="" routerLink="settings">
+  <span class="mr-0 text-gray-600 small">{{
                 userName
               }}</span
               ><img
@@ -14,26 +14,24 @@
                 [src]="user"
               />
 </a>
-      <div class="dropdown" data-toggle="collapse" data-target=".navbar-collapse.show">
-        <a
-          class="nav-link"
-          id="navbarDropdown"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-    <i
+                        <div class="dropdown ml-xl-5 pl-xl-5 mr-0 pr-0">
+                          <button
+                            class="btn btn-primary dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >    <i
       class="fas fa-ellipsis-v"
       style="font-size:20px;padding: 2px"
-    ></i>fsfsf
-</a
-        >
+    ></i></button>
+                          <div
+                            class="dropdown-menu"
+                            aria-labelledby="dropdownMenuButton"
+                          >
 
-        <div
-          class="dropdown-content bg-dark text-white-75 pb-2 pt-1"
-          aria-labelledby="navbarDropdown"
-        >
-          <a class="dropdown-item text-white-75 px-2" routerLink="products" (click)='toggleArial()'
+          <a class="dropdown-item text-white-75 px-2" routerLink="products"
             ><i
               class="fas fa-anchor"
               style="font-size:20px;padding: 2px"
@@ -41,7 +39,7 @@
             >&nbsp;Products</a
           >
           <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white-75 px-2" routerLink="aboutus" (click)='toggleArial()'
+          <a class="dropdown-item text-white-75 px-2" routerLink="aboutus"
             ><i
               class="fas fa-info"
               style="font-size:20px;padding: 2px"
@@ -49,7 +47,7 @@
             >&nbsp;About us</a
           >
           <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white-75 px-2" (click)='toggleArial()'
+          <a class="dropdown-item text-white-75 px-2"
             ><i
               class="fas fa-question"
               style="font-size:20px;padding: 2px"
@@ -58,7 +56,7 @@
           >
 
           <!-- <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item text-white-75 px-2" (click)='toggleArial()'
+          <a class="dropdown-item text-white-75 px-2"
             ><i
               class="fas fa-info-circle"
               style="font-size:20px;padding: 2px"

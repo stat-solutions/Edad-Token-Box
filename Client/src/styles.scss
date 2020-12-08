@@ -3173,7 +3173,7 @@ input[type=submit].btn-block {
 }
 
 .dropdown-toggle::after {
-    display: inline-block;
+    display: none;
     margin-left: .255em;
     vertical-align: .255em;
     content: "";
